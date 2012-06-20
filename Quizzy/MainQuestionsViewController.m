@@ -64,12 +64,17 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     NSDictionary *sectionDict = [self.sections objectAtIndex:[indexPath section]];
     NSArray *sectionQuestions = [sectionDict objectForKey:@"questions"];
     NSString *questionText = [[sectionQuestions objectAtIndex:[indexPath row]] questionText];
     
+    if ([[[DataManager defaultDataManager] userChoices] valueForKey:questionText]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+
     [cell.textLabel setText:questionText];
     return cell;
 }

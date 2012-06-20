@@ -9,6 +9,7 @@
 #import "SubquestionsViewController.h"
 #import "Question.h"
 #import "CustomLabel.h"
+#import "DataManager.h"
 
 @interface SubquestionsViewController ()
 
@@ -61,6 +62,12 @@
     
     Question *question = [self.tableData objectAtIndex:[indexPath row]];
     [cell.textLabel setText:question.questionText];
+    
+    if ([[[DataManager defaultDataManager] userChoices] valueForKey:question.questionText]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     return cell;
 }
