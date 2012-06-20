@@ -1,0 +1,49 @@
+Questions Table
+QuestionId          QuestionText                            QuestionType            OwnerPairId
+1                   What is your social status?             Multiple choice         NULL
+2                   How long have you been married?         Text choice             1
+3                   Married to a woman or a man?            Multiple choice         1
+4                   When will you marry?                    Multiple choice         2
+5                   Have you been married?                  Multiple choice         2
+6                   For how long?                           Multiple choice         8
+7                   Do you play poker?                      Multiple choice         NULL
+8                   Have you played in a tournament?        Multiple choice         12
+9                   Did you win any money?                  Multiple choice         14
+10                  How much money?                         Text choice             16
+
+
+OwnerPair Table
+QuestionId          AnswerId            OwnerPairId
+1                   1                   1
+1                   2                   2
+3                   4                   3
+3                   5                   4
+4                   6                   5
+4                   7                   6
+4                   8                   7
+5                   9                   8
+5                   10                  9
+6                   11                  10
+6                   12                  11
+7                   9                   12
+7                   10                  13
+8                   9                   14
+8                   10                  15
+9                   9                   16
+9                   19                  17
+
+
+Answers Table
+AnswerId            AnswerText
+1                   Married
+2                   Single
+3                   Divorced
+4                   Woman
+5                   Man
+6                   In 1 year
+7                   In 10 years
+8                   Never
+9                   Yes
+10                  No
+11                  Less than 5 years
+12                  More than 5 years
