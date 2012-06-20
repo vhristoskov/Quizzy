@@ -9,15 +9,18 @@
 /* Begin PBXBuildFile section */
 		3E8609E71592189800397083 /* SingleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8609E51592189800397083 /* SingleChoiceViewController.m */; };
 		3E8609E81592189800397083 /* SingleChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8609E61592189800397083 /* SingleChoiceViewController.xib */; };
-		3E8609EB1592191C00397083 /* CustomAnimationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8609EA1592191C00397083 /* CustomAnimationUtilities.m */; };
-		A0240B2B1591CF1D002F637B /* MainQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B291591CF1D002F637B /* MainQuestionsViewController.m */; };
+				A0240B2B1591CF1D002F637B /* MainQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B291591CF1D002F637B /* MainQuestionsViewController.m */; };
 		A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */; };
 		A0240B361591DD78002F637B /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B351591DD78002F637B /* Question.m */; };
 		A0240B391591DE5A002F637B /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B381591DE5A002F637B /* Answer.m */; };
 		A0240B3C1591DEAD002F637B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B3B1591DEAD002F637B /* DataManager.m */; };
 		A0240B3E1591F017002F637B /* QuizData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A0240B3D1591F017002F637B /* QuizData.sqlite */; };
 		A0240B401591F05D002F637B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A0240B3F1591F05D002F637B /* libsqlite3.0.dylib */; };
-		A0240B4715921502002F637B /* UserChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B4615921502002F637B /* UserChoice.m */; };
+		A0240B4C159219B9002F637B /* SubquestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B4A159219B9002F637B /* SubquestionsViewController.m */; };
+		A0240B4D159219B9002F637B /* SubquestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0240B4B159219B9002F637B /* SubquestionsViewController.xib */; };
+		A0240B5415921E2C002F637B /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B5315921E2C002F637B /* CustomLabel.m */; };
+		A0240B60159225AE002F637B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0240B5F159225AE002F637B /* MessageUI.framework */; };
+		A0240B6215922B5B002F637B /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = A0240B6115922B5B002F637B /* Question.png */; };
 		A0D2F1A01590D30900C24063 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F19F1590D30900C24063 /* UIKit.framework */; };
 		A0D2F1A21590D30900C24063 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A11590D30900C24063 /* Foundation.framework */; };
 		A0D2F1A41590D30900C24063 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A31590D30900C24063 /* CoreGraphics.framework */; };
@@ -30,8 +33,7 @@
 		3E8609E41592189800397083 /* SingleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoiceViewController.h; sourceTree = "<group>"; };
 		3E8609E51592189800397083 /* SingleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoiceViewController.m; sourceTree = "<group>"; };
 		3E8609E61592189800397083 /* SingleChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChoiceViewController.xib; sourceTree = "<group>"; };
-		3E8609E91592191C00397083 /* CustomAnimationUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnimationUtilities.h; sourceTree = "<group>"; };
-		3E8609EA1592191C00397083 /* CustomAnimationUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnimationUtilities.m; sourceTree = "<group>"; };
+		
 		A0240B281591CF1D002F637B /* MainQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainQuestionsViewController.h; sourceTree = "<group>"; };
 		A0240B291591CF1D002F637B /* MainQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainQuestionsViewController.m; sourceTree = "<group>"; };
 		A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainQuestionsViewController.xib; sourceTree = "<group>"; };
@@ -43,8 +45,13 @@
 		A0240B3B1591DEAD002F637B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A0240B3D1591F017002F637B /* QuizData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuizData.sqlite; sourceTree = "<group>"; };
 		A0240B3F1591F05D002F637B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		A0240B4515921502002F637B /* UserChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserChoice.h; sourceTree = "<group>"; };
-		A0240B4615921502002F637B /* UserChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserChoice.m; sourceTree = "<group>"; };
+		A0240B49159219B9002F637B /* SubquestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubquestionsViewController.h; sourceTree = "<group>"; };
+		A0240B4A159219B9002F637B /* SubquestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubquestionsViewController.m; sourceTree = "<group>"; };
+		A0240B4B159219B9002F637B /* SubquestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubquestionsViewController.xib; sourceTree = "<group>"; };
+		A0240B5215921E2C002F637B /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
+		A0240B5315921E2C002F637B /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
+		A0240B5F159225AE002F637B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A0240B6115922B5B002F637B /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
 		A0D2F19B1590D30900C24063 /* Quizzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2F19F1590D30900C24063 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A0D2F1A11590D30900C24063 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0240B60159225AE002F637B /* MessageUI.framework in Frameworks */,
 				A0240B401591F05D002F637B /* libsqlite3.0.dylib in Frameworks */,
 				A0D2F1A01590D30900C24063 /* UIKit.framework in Frameworks */,
 				A0D2F1A21590D30900C24063 /* Foundation.framework in Frameworks */,
@@ -81,8 +89,6 @@
 				A0240B381591DE5A002F637B /* Answer.m */,
 				A0240B3A1591DEAD002F637B /* DataManager.h */,
 				A0240B3B1591DEAD002F637B /* DataManager.m */,
-				A0240B4515921502002F637B /* UserChoice.h */,
-				A0240B4615921502002F637B /* UserChoice.m */,
 			);
 			name = "Data Manager";
 			sourceTree = "<group>";
@@ -93,9 +99,15 @@
 				A0240B281591CF1D002F637B /* MainQuestionsViewController.h */,
 				A0240B291591CF1D002F637B /* MainQuestionsViewController.m */,
 				A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */,
+
 				3E8609E41592189800397083 /* SingleChoiceViewController.h */,
 				3E8609E51592189800397083 /* SingleChoiceViewController.m */,
 				3E8609E61592189800397083 /* SingleChoiceViewController.xib */,
+
+				A0240B49159219B9002F637B /* SubquestionsViewController.h */,
+				A0240B4A159219B9002F637B /* SubquestionsViewController.m */,
+				A0240B4B159219B9002F637B /* SubquestionsViewController.xib */,
+
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -120,6 +132,7 @@
 		A0D2F19E1590D30900C24063 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0240B5F159225AE002F637B /* MessageUI.framework */,
 				A0240B3F1591F05D002F637B /* libsqlite3.0.dylib */,
 				A0D2F19F1590D30900C24063 /* UIKit.framework */,
 				A0D2F1A11590D30900C24063 /* Foundation.framework */,
@@ -131,8 +144,7 @@
 		A0D2F1A51590D30900C24063 /* Quizzy */ = {
 			isa = PBXGroup;
 			children = (
-				3E8609E91592191C00397083 /* CustomAnimationUtilities.h */,
-				3E8609EA1592191C00397083 /* CustomAnimationUtilities.m */,
+				
 				A0240B3D1591F017002F637B /* QuizData.sqlite */,
 				A0D2F1AE1590D30900C24063 /* AppDelegate.h */,
 				A0D2F1AF1590D30900C24063 /* AppDelegate.m */,
@@ -146,6 +158,9 @@
 		A0D2F1A61590D30900C24063 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A0240B6115922B5B002F637B /* Question.png */,
+				A0240B5215921E2C002F637B /* CustomLabel.h */,
+				A0240B5315921E2C002F637B /* CustomLabel.m */,
 				A0D2F1A71590D30900C24063 /* Quizzy-Info.plist */,
 				A0D2F1A81590D30900C24063 /* InfoPlist.strings */,
 				A0D2F1AB1590D30900C24063 /* main.m */,
@@ -208,7 +223,12 @@
 				A0D2F1AA1590D30900C24063 /* InfoPlist.strings in Resources */,
 				A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */,
 				A0240B3E1591F017002F637B /* QuizData.sqlite in Resources */,
+
 				3E8609E81592189800397083 /* SingleChoiceViewController.xib in Resources */,
+
+				A0240B4D159219B9002F637B /* SubquestionsViewController.xib in Resources */,
+				A0240B6215922B5B002F637B /* Question.png in Resources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,9 +245,11 @@
 				A0240B361591DD78002F637B /* Question.m in Sources */,
 				A0240B391591DE5A002F637B /* Answer.m in Sources */,
 				A0240B3C1591DEAD002F637B /* DataManager.m in Sources */,
+
 				A0240B4715921502002F637B /* UserChoice.m in Sources */,
 				3E8609E71592189800397083 /* SingleChoiceViewController.m in Sources */,
-				3E8609EB1592191C00397083 /* CustomAnimationUtilities.m in Sources */,
+								A0240B4C159219B9002F637B /* SubquestionsViewController.m in Sources */,
+				A0240B5415921E2C002F637B /* CustomLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

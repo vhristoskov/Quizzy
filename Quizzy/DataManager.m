@@ -9,7 +9,6 @@
 #import <sqlite3.h>
 #import "DataManager.h"
 #import "Question.h"
-#import "UserChoice.h"
 
 static DataManager *defaultDataManager = nil;
 
@@ -51,7 +50,7 @@ static DataManager *defaultDataManager = nil;
     }
     self = [super init];
     
-    userChoices = [[NSMutableArray alloc] init];
+    userChoices = [[NSMutableDictionary alloc] init];
     [self initDB];
     
     return self;
@@ -210,10 +209,20 @@ static DataManager *defaultDataManager = nil;
 }
 
 - (void)addChoice:(NSString *)answerText withQuestion:(NSString *)questionText {
-    UserChoice *userChoice = [[UserChoice alloc] init];
-    userChoice.answer = answerText;
-    userChoice.question = questionText;
-    [self.userChoices addObject:userChoice];
+    [self.userChoices setValue:answerText forKey:questionText];
+}
+
+- (NSString *)getChoicesAsText {
+    NSMutableString *choices = [[NSMutableString alloc] init];
+    
+    NSArray *questions = [self.userChoices allKeys];
+    for (NSString *question in questions) {
+        NSString *answer = [self.userChoices valueForKey:question];
+        NSString *choice = [NSString stringWithFormat:@"Question: %@\nAnswer: %@\n", question, answer];
+        [choices appendString:choice];
+    }
+    
+    return choices;
 }
 
 @end
