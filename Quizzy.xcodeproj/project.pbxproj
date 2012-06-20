@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E8609E71592189800397083 /* SingleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8609E51592189800397083 /* SingleChoiceViewController.m */; };
-		3E8609E81592189800397083 /* SingleChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8609E61592189800397083 /* SingleChoiceViewController.xib */; };
-				A0240B2B1591CF1D002F637B /* MainQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B291591CF1D002F637B /* MainQuestionsViewController.m */; };
+		A0240B2B1591CF1D002F637B /* MainQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B291591CF1D002F637B /* MainQuestionsViewController.m */; };
 		A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */; };
 		A0240B361591DD78002F637B /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B351591DD78002F637B /* Question.m */; };
 		A0240B391591DE5A002F637B /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B381591DE5A002F637B /* Answer.m */; };
@@ -30,10 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3E8609E41592189800397083 /* SingleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoiceViewController.h; sourceTree = "<group>"; };
-		3E8609E51592189800397083 /* SingleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoiceViewController.m; sourceTree = "<group>"; };
-		3E8609E61592189800397083 /* SingleChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChoiceViewController.xib; sourceTree = "<group>"; };
-		
+		3E8609F415922FE500397083 /* SingleChoiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleChoiceViewController.h; sourceTree = "<group>"; };
+		3E8609F515922FE500397083 /* SingleChoiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleChoiceViewController.m; sourceTree = "<group>"; };
+		3E8609F615922FE500397083 /* SingleChoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleChoiceViewController.xib; sourceTree = "<group>"; };
 		A0240B281591CF1D002F637B /* MainQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainQuestionsViewController.h; sourceTree = "<group>"; };
 		A0240B291591CF1D002F637B /* MainQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainQuestionsViewController.m; sourceTree = "<group>"; };
 		A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainQuestionsViewController.xib; sourceTree = "<group>"; };
@@ -96,18 +93,15 @@
 		A0240B331591DD11002F637B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E8609F415922FE500397083 /* SingleChoiceViewController.h */,
+				3E8609F515922FE500397083 /* SingleChoiceViewController.m */,
+				3E8609F615922FE500397083 /* SingleChoiceViewController.xib */,
 				A0240B281591CF1D002F637B /* MainQuestionsViewController.h */,
 				A0240B291591CF1D002F637B /* MainQuestionsViewController.m */,
 				A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */,
-
-				3E8609E41592189800397083 /* SingleChoiceViewController.h */,
-				3E8609E51592189800397083 /* SingleChoiceViewController.m */,
-				3E8609E61592189800397083 /* SingleChoiceViewController.xib */,
-
 				A0240B49159219B9002F637B /* SubquestionsViewController.h */,
 				A0240B4A159219B9002F637B /* SubquestionsViewController.m */,
 				A0240B4B159219B9002F637B /* SubquestionsViewController.xib */,
-
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -144,7 +138,6 @@
 		A0D2F1A51590D30900C24063 /* Quizzy */ = {
 			isa = PBXGroup;
 			children = (
-				
 				A0240B3D1591F017002F637B /* QuizData.sqlite */,
 				A0D2F1AE1590D30900C24063 /* AppDelegate.h */,
 				A0D2F1AF1590D30900C24063 /* AppDelegate.m */,
@@ -223,12 +216,8 @@
 				A0D2F1AA1590D30900C24063 /* InfoPlist.strings in Resources */,
 				A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */,
 				A0240B3E1591F017002F637B /* QuizData.sqlite in Resources */,
-
-				3E8609E81592189800397083 /* SingleChoiceViewController.xib in Resources */,
-
 				A0240B4D159219B9002F637B /* SubquestionsViewController.xib in Resources */,
 				A0240B6215922B5B002F637B /* Question.png in Resources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,10 +234,7 @@
 				A0240B361591DD78002F637B /* Question.m in Sources */,
 				A0240B391591DE5A002F637B /* Answer.m in Sources */,
 				A0240B3C1591DEAD002F637B /* DataManager.m in Sources */,
-
-				A0240B4715921502002F637B /* UserChoice.m in Sources */,
-				3E8609E71592189800397083 /* SingleChoiceViewController.m in Sources */,
-								A0240B4C159219B9002F637B /* SubquestionsViewController.m in Sources */,
+				A0240B4C159219B9002F637B /* SubquestionsViewController.m in Sources */,
 				A0240B5415921E2C002F637B /* CustomLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

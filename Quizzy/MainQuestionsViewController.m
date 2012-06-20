@@ -98,15 +98,18 @@
     
     switch (question.questionType) {
         case 0:
+        {    
             // load single choice type question view controller
             // set its answers and question properties
             // push it to the navigation controller
-            
+    
             SingleChoiceViewController *singleChoiceVC = [[SingleChoiceViewController alloc]initWithNibName:@"SingleChoiceViewController" bundle:nil];
+
             singleChoiceVC.question = [sectionQuestions objectAtIndex:[indexPath row]];
             [self presentModalViewController:singleChoiceVC animated:YES];
 
             break;
+        }        
         case 1:
             // load multiple choice type question view controller
             // set its answers and question properties
