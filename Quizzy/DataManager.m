@@ -75,7 +75,7 @@ static DataManager *defaultDataManager = nil;
 
 - (NSArray *)fetchMainQuestions {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    const char *sqlRequest = "SELECT question.QuestionText, question.QuestionType, section.SectionText, question.QuestionId FROM Question join Section on Question.QuestionSectionId = section.sectionId where question.QuestionParentId is null";
+    const char *sqlRequest = "SELECT q.QuestionText, q.QuestionType, s.SectionText, q.QuestionId FROM Question q join Section s on q.QuestionSectionId = s.sectionId where q.QuestionParentId is null";
     sqlite3_stmt *statement;
     int sqlResult = sqlite3_prepare_v2(database, sqlRequest, -1, &statement, NULL);
     if (sqlResult == SQLITE_OK) {
@@ -104,7 +104,7 @@ static DataManager *defaultDataManager = nil;
     NSMutableArray *result = [[NSMutableArray alloc] init];
 
     sqlite3_stmt *statement;
-    const char *sqlRequest = "SELECT question.QuestionText, question.QuestionType, section.SectionText, question.QuestionId FROM Question join Section on Question.QuestionSectionId = section.sectionId join QuestionParent on QuestionParent.ParentId = question.QuestionParentId where (question.QuestionId = ?) and QuestionParent.AnswerId = ?";
+    const char *sqlRequest = "SELECT q.QuestionText, q.QuestionType, s.SectionText, q.QuestionId FROM Question q join Section s on q.QuestionSectionId = s.sectionId join QuestionParent qp on qp.ParentId = q.QuestionParentId where (qp.QuestionId = ?) and (qp.AnswerId = ?)";
     
     int sqlResult = sqlite3_prepare_v2(database, sqlRequest, -1, &statement, NULL);
 
@@ -137,7 +137,7 @@ static DataManager *defaultDataManager = nil;
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     sqlite3_stmt *statement;
-    const char *sqlRequest = "SELECT Answer.Answer, answer.AnswerId FROM Answer join QuestionParent on QuestionParent.AnswerId = Answer.AnswerId join Question on Question.QuestionId = QuestionParent.QuestionId where question.QuestionId = ?";
+    const char *sqlRequest = "SELECT a.Answer, a.AnswerId FROM Answer a join QuestionParent qp on qp.AnswerId = a.AnswerId join Question q on q.QuestionId = qp.QuestionId where q.QuestionId = ?";
     
     int sqlResult = sqlite3_prepare_v2(database, sqlRequest, -1, &statement, NULL);
    
@@ -167,7 +167,7 @@ static DataManager *defaultDataManager = nil;
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     sqlite3_stmt *statement;
-    const char *sqlRequest = "SELECT section.sectionText FROM Section";
+    const char *sqlRequest = "SELECT s.sectionText FROM Section s";
     
     int sqlResult = sqlite3_prepare_v2(database, sqlRequest, -1, &statement, NULL);
     
