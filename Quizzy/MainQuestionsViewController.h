@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnswerDelegate.h"
 
-@interface MainQuestionsViewController : UITableViewController
+@interface MainQuestionsViewController : UITableViewController <AnswerDelegate>
 
 @property (nonatomic, strong) NSArray *sections;
 

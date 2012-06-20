@@ -19,6 +19,8 @@
 		A0240B5415921E2C002F637B /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B5315921E2C002F637B /* CustomLabel.m */; };
 		A0240B60159225AE002F637B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0240B5F159225AE002F637B /* MessageUI.framework */; };
 		A0240B6215922B5B002F637B /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = A0240B6115922B5B002F637B /* Question.png */; };
+		A0240B6F1592329F002F637B /* SingleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B6D1592329F002F637B /* SingleChoiceViewController.m */; };
+		A0240B701592329F002F637B /* SingleChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0240B6E1592329F002F637B /* SingleChoiceViewController.xib */; };
 		A0D2F1A01590D30900C24063 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F19F1590D30900C24063 /* UIKit.framework */; };
 		A0D2F1A21590D30900C24063 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A11590D30900C24063 /* Foundation.framework */; };
 		A0D2F1A41590D30900C24063 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A31590D30900C24063 /* CoreGraphics.framework */; };
@@ -28,9 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3E8609F415922FE500397083 /* SingleChoiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleChoiceViewController.h; sourceTree = "<group>"; };
-		3E8609F515922FE500397083 /* SingleChoiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleChoiceViewController.m; sourceTree = "<group>"; };
-		3E8609F615922FE500397083 /* SingleChoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleChoiceViewController.xib; sourceTree = "<group>"; };
 		A0240B281591CF1D002F637B /* MainQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainQuestionsViewController.h; sourceTree = "<group>"; };
 		A0240B291591CF1D002F637B /* MainQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainQuestionsViewController.m; sourceTree = "<group>"; };
 		A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainQuestionsViewController.xib; sourceTree = "<group>"; };
@@ -49,6 +48,10 @@
 		A0240B5315921E2C002F637B /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
 		A0240B5F159225AE002F637B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A0240B6115922B5B002F637B /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
+		A0240B6C1592329F002F637B /* SingleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoiceViewController.h; sourceTree = "<group>"; };
+		A0240B6D1592329F002F637B /* SingleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoiceViewController.m; sourceTree = "<group>"; };
+		A0240B6E1592329F002F637B /* SingleChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChoiceViewController.xib; sourceTree = "<group>"; };
+		A0240B71159233AE002F637B /* AnswerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnswerDelegate.h; sourceTree = "<group>"; };
 		A0D2F19B1590D30900C24063 /* Quizzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2F19F1590D30900C24063 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A0D2F1A11590D30900C24063 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,9 +96,9 @@
 		A0240B331591DD11002F637B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3E8609F415922FE500397083 /* SingleChoiceViewController.h */,
-				3E8609F515922FE500397083 /* SingleChoiceViewController.m */,
-				3E8609F615922FE500397083 /* SingleChoiceViewController.xib */,
+				A0240B6C1592329F002F637B /* SingleChoiceViewController.h */,
+				A0240B6D1592329F002F637B /* SingleChoiceViewController.m */,
+				A0240B6E1592329F002F637B /* SingleChoiceViewController.xib */,
 				A0240B281591CF1D002F637B /* MainQuestionsViewController.h */,
 				A0240B291591CF1D002F637B /* MainQuestionsViewController.m */,
 				A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */,
@@ -141,6 +144,7 @@
 				A0240B3D1591F017002F637B /* QuizData.sqlite */,
 				A0D2F1AE1590D30900C24063 /* AppDelegate.h */,
 				A0D2F1AF1590D30900C24063 /* AppDelegate.m */,
+				A0240B71159233AE002F637B /* AnswerDelegate.h */,
 				A0240B311591DCE1002F637B /* Data Manager */,
 				A0240B331591DD11002F637B /* ViewControllers */,
 				A0D2F1A61590D30900C24063 /* Supporting Files */,
@@ -218,6 +222,7 @@
 				A0240B3E1591F017002F637B /* QuizData.sqlite in Resources */,
 				A0240B4D159219B9002F637B /* SubquestionsViewController.xib in Resources */,
 				A0240B6215922B5B002F637B /* Question.png in Resources */,
+				A0240B701592329F002F637B /* SingleChoiceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +241,7 @@
 				A0240B3C1591DEAD002F637B /* DataManager.m in Sources */,
 				A0240B4C159219B9002F637B /* SubquestionsViewController.m in Sources */,
 				A0240B5415921E2C002F637B /* CustomLabel.m in Sources */,
+				A0240B6F1592329F002F637B /* SingleChoiceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

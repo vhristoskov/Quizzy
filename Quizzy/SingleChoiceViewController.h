@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnswerDelegate.h"
 @class Question;
 
 @interface SingleChoiceViewController : UIViewController
@@ -17,5 +18,6 @@
 - (IBAction)cancelSingleChoice:(id)sender;
 - (IBAction)submitSingleChoice:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *questionLabel;
+@property (nonatomic, weak) id<AnswerDelegate> delegate;
 
 @end

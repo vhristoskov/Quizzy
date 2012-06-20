@@ -49,6 +49,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"%@", [self.tableData count]);
     return [self.tableData count];
 }
 
@@ -112,6 +113,18 @@
     [previousQuestionLabel setTextAlignment:UITextAlignmentCenter];
     
     [self.tableView setTableHeaderView:previousQuestionLabel];
+}
+
+# pragma mark - AnswerDelegate methods
+
+- (void)didSubmitAnswer:(Answer *)answer withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question {
+    [[DataManager defaultDataManager] addChoice:answer.answerText withQuestion:question.questionText];
+    
+    SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
+    subquestionsVC.previousQuestion = question.questionText;
+    subquestionsVC.tableData = subquestions;
+    
+    [self.navigationController pushViewController:subquestionsVC animated:YES];
 }
 
 @end

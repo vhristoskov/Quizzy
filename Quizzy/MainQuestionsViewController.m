@@ -99,15 +99,10 @@
     switch (question.questionType) {
         case 0:
         {    
-            // load single choice type question view controller
-            // set its answers and question properties
-            // push it to the navigation controller
-    
             SingleChoiceViewController *singleChoiceVC = [[SingleChoiceViewController alloc]initWithNibName:@"SingleChoiceViewController" bundle:nil];
-
             singleChoiceVC.question = [sectionQuestions objectAtIndex:[indexPath row]];
+            singleChoiceVC.delegate = self;
             [self presentModalViewController:singleChoiceVC animated:YES];
-
             break;
         }        
         case 1:
@@ -169,6 +164,18 @@
     }
 
     [self dismissModalViewControllerAnimated:YES];
+}
+
+# pragma mark - AnswerDelegate methods
+
+- (void)didSubmitAnswer:(Answer *)answer withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question {
+    [[DataManager defaultDataManager] addChoice:answer.answerText withQuestion:question.questionText];
+    
+    SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
+    subquestionsVC.previousQuestion = question.questionText;
+    subquestionsVC.tableData = subquestions;
+    
+    [self.navigationController pushViewController:subquestionsVC animated:YES];
 }
 
 @end

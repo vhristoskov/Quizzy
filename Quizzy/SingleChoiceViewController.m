@@ -10,7 +10,8 @@
 #import "DataManager.h"
 #import "Answer.h"
 #import "Question.h"
-#import "CustomAnimationUtilities.h"
+#import "SubquestionsViewController.h"
+//#import "CustomAnimationUtilities.h"
 
 @interface SingleChoiceViewController ()
 @property (strong, nonatomic) NSArray *answers;
@@ -23,6 +24,7 @@
 @synthesize question;
 @synthesize answers;
 @synthesize answerChoice;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -99,11 +101,14 @@
 
 - (IBAction)submitSingleChoice:(id)sender {
     
-    NSArray *subquestions = [[DataManager defaultDataManager]  fetchSubquestionsOfQuestion:self.question forAnswer:self.answerChoice];
+    NSArray *subquestions = [[DataManager defaultDataManager] fetchSubquestionsOfQuestion:self.question forAnswer:self.answerChoice];
     for (Question *q in subquestions) {
         NSLog(@"%@", q.questionText);
     }
     
+    if ([self.delegate respondsToSelector:@selector(didSubmitAnswer:withSubquestions:forQuestion:)]) {
+        [self.delegate didSubmitAnswer:self.answerChoice withSubquestions:subquestions forQuestion:self.question];
+    }
     [self dismissModalViewControllerAnimated:YES];
 //    [CustomAnimationUtilities hideViewToBottom:self.view withHeight:480 withDuration:0.4];
 
