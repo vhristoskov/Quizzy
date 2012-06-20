@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnswerDelegate.h"
 
-@interface SubquestionsViewController : UITableViewController
+@interface SubquestionsViewController : UITableViewController <AnswerDelegate>
 
 @property (nonatomic, strong) NSArray *tableData;
 @property (nonatomic, strong) NSString *previousQuestion;
