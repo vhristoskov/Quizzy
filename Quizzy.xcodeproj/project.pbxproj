@@ -18,6 +18,7 @@
 		A0240B4D159219B9002F637B /* SubquestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0240B4B159219B9002F637B /* SubquestionsViewController.xib */; };
 		A0240B5415921E2C002F637B /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B5315921E2C002F637B /* CustomLabel.m */; };
 		A0240B60159225AE002F637B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0240B5F159225AE002F637B /* MessageUI.framework */; };
+		A0240B6215922B5B002F637B /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = A0240B6115922B5B002F637B /* Question.png */; };
 		A0D2F1A01590D30900C24063 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F19F1590D30900C24063 /* UIKit.framework */; };
 		A0D2F1A21590D30900C24063 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A11590D30900C24063 /* Foundation.framework */; };
 		A0D2F1A41590D30900C24063 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A31590D30900C24063 /* CoreGraphics.framework */; };
@@ -45,6 +46,7 @@
 		A0240B5215921E2C002F637B /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
 		A0240B5315921E2C002F637B /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
 		A0240B5F159225AE002F637B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A0240B6115922B5B002F637B /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
 		A0D2F19B1590D30900C24063 /* Quizzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2F19F1590D30900C24063 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A0D2F1A11590D30900C24063 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,6 +148,7 @@
 		A0D2F1A61590D30900C24063 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A0240B6115922B5B002F637B /* Question.png */,
 				A0240B5215921E2C002F637B /* CustomLabel.h */,
 				A0240B5315921E2C002F637B /* CustomLabel.m */,
 				A0D2F1A71590D30900C24063 /* Quizzy-Info.plist */,
@@ -212,6 +215,7 @@
 				A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */,
 				A0240B3E1591F017002F637B /* QuizData.sqlite in Resources */,
 				A0240B4D159219B9002F637B /* SubquestionsViewController.xib in Resources */,
+				A0240B6215922B5B002F637B /* Question.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

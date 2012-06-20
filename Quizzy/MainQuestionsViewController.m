@@ -75,6 +75,9 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
+    UIImage *image = [UIImage imageNamed:@"Question"];
+    [cell.imageView setImage:image];
+
     [cell.textLabel setText:questionText];
     return cell;
 }
