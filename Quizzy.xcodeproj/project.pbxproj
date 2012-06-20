@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E8609E71592189800397083 /* SingleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8609E51592189800397083 /* SingleChoiceViewController.m */; };
+		3E8609E81592189800397083 /* SingleChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8609E61592189800397083 /* SingleChoiceViewController.xib */; };
+		3E8609EB1592191C00397083 /* CustomAnimationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8609EA1592191C00397083 /* CustomAnimationUtilities.m */; };
 		A0240B2B1591CF1D002F637B /* MainQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B291591CF1D002F637B /* MainQuestionsViewController.m */; };
 		A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */; };
 		A0240B361591DD78002F637B /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B351591DD78002F637B /* Question.m */; };
@@ -21,10 +24,14 @@
 		A0D2F1AA1590D30900C24063 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0D2F1A81590D30900C24063 /* InfoPlist.strings */; };
 		A0D2F1AC1590D30900C24063 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2F1AB1590D30900C24063 /* main.m */; };
 		A0D2F1B01590D30900C24063 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2F1AF1590D30900C24063 /* AppDelegate.m */; };
-		A0D2F1B71590EE5100C24063 /* MultipleChoiceQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D2F1B61590EE5100C24063 /* MultipleChoiceQuestion.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E8609E41592189800397083 /* SingleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoiceViewController.h; sourceTree = "<group>"; };
+		3E8609E51592189800397083 /* SingleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoiceViewController.m; sourceTree = "<group>"; };
+		3E8609E61592189800397083 /* SingleChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChoiceViewController.xib; sourceTree = "<group>"; };
+		3E8609E91592191C00397083 /* CustomAnimationUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnimationUtilities.h; sourceTree = "<group>"; };
+		3E8609EA1592191C00397083 /* CustomAnimationUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnimationUtilities.m; sourceTree = "<group>"; };
 		A0240B281591CF1D002F637B /* MainQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainQuestionsViewController.h; sourceTree = "<group>"; };
 		A0240B291591CF1D002F637B /* MainQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainQuestionsViewController.m; sourceTree = "<group>"; };
 		A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainQuestionsViewController.xib; sourceTree = "<group>"; };
@@ -48,7 +55,6 @@
 		A0D2F1AD1590D30900C24063 /* Quizzy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quizzy-Prefix.pch"; sourceTree = "<group>"; };
 		A0D2F1AE1590D30900C24063 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0D2F1AF1590D30900C24063 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A0D2F1B61590EE5100C24063 /* MultipleChoiceQuestion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleChoiceQuestion.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +90,12 @@
 		A0240B331591DD11002F637B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A0D2F1B61590EE5100C24063 /* MultipleChoiceQuestion.xib */,
 				A0240B281591CF1D002F637B /* MainQuestionsViewController.h */,
 				A0240B291591CF1D002F637B /* MainQuestionsViewController.m */,
 				A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */,
+				3E8609E41592189800397083 /* SingleChoiceViewController.h */,
+				3E8609E51592189800397083 /* SingleChoiceViewController.m */,
+				3E8609E61592189800397083 /* SingleChoiceViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -123,6 +131,8 @@
 		A0D2F1A51590D30900C24063 /* Quizzy */ = {
 			isa = PBXGroup;
 			children = (
+				3E8609E91592191C00397083 /* CustomAnimationUtilities.h */,
+				3E8609EA1592191C00397083 /* CustomAnimationUtilities.m */,
 				A0240B3D1591F017002F637B /* QuizData.sqlite */,
 				A0D2F1AE1590D30900C24063 /* AppDelegate.h */,
 				A0D2F1AF1590D30900C24063 /* AppDelegate.m */,
@@ -196,9 +206,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D2F1AA1590D30900C24063 /* InfoPlist.strings in Resources */,
-				A0D2F1B71590EE5100C24063 /* MultipleChoiceQuestion.xib in Resources */,
 				A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */,
 				A0240B3E1591F017002F637B /* QuizData.sqlite in Resources */,
+				3E8609E81592189800397083 /* SingleChoiceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +226,8 @@
 				A0240B391591DE5A002F637B /* Answer.m in Sources */,
 				A0240B3C1591DEAD002F637B /* DataManager.m in Sources */,
 				A0240B4715921502002F637B /* UserChoice.m in Sources */,
+				3E8609E71592189800397083 /* SingleChoiceViewController.m in Sources */,
+				3E8609EB1592191C00397083 /* CustomAnimationUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

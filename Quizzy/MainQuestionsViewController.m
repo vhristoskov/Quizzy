@@ -8,6 +8,8 @@
 
 #import "MainQuestionsViewController.h"
 #import "DataManager.h"
+#import "CustomAnimationUtilities.h"
+#import "SingleChoiceViewController.h"
 
 @interface MainQuestionsViewController ()
 
@@ -30,7 +32,7 @@
     [self.navigationItem setTitle:@"Quiz Questions"];
     
     NSArray *mainQuestions = [[DataManager defaultDataManager] fetchMainQuestions];
-    sections = [[DataManager defaultDataManager] categorizeQuestions:mainQuestions];
+    self.sections = [[DataManager defaultDataManager] categorizeQuestions:mainQuestions];
 }
 
 - (void)viewDidUnload {
@@ -77,6 +79,17 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDictionary *questionDict = [self.sections objectAtIndex:[indexPath section]];
+    NSArray *sectionQuestions = [questionDict objectForKey:@"questions"];
+    NSInteger questionType = [[sectionQuestions objectAtIndex:[indexPath row]] questionType];
+    if(questionType == 0){
+        SingleChoiceViewController *singleChoiceVC = [[SingleChoiceViewController alloc]initWithNibName:@"SingleChoiceViewController" bundle:nil];
+        singleChoiceVC.question = [sectionQuestions objectAtIndex:[indexPath row]];
+        [self presentModalViewController:singleChoiceVC animated:YES];
+//        [CustomAnimationUtilities appearView:singleChoiceVC.view FromBottomOfView:self.view withHeight:460 withDuration:0.4];
+    }
+    
 }
 
 @end

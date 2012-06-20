@@ -108,20 +108,21 @@ static DataManager *defaultDataManager = nil;
     const char *sqlRequest = "SELECT question.QuestionText, question.QuestionType, section.SectionText, question.QuestionId FROM Question join Section on Question.QuestionSectionId = section.sectionId join QuestionParent on QuestionParent.ParentId = question.QuestionParentId where (question.QuestionId = ?) and QuestionParent.AnswerId = ?";
     
     int sqlResult = sqlite3_prepare_v2(database, sqlRequest, -1, &statement, NULL);
-    
+
     if(sqlResult == SQLITE_OK) {
         sqlite3_bind_int(statement,1,question.questionId);
         sqlite3_bind_int(statement,2,answer.answerId);
+        
         while (sqlite3_step(statement) == SQLITE_ROW) {
             Question *question = [[Question alloc] init];
-            
+
             char *questionText = (char *)sqlite3_column_text(statement, 0);
             question.questionText = (questionText) ? [NSString stringWithUTF8String:questionText] : @"";
             question.questionType = sqlite3_column_int(statement, 1);
             char *questionSection = (char *)sqlite3_column_text(statement, 2);
             question.questionSection = (questionSection) ? [NSString stringWithUTF8String:questionSection] : @"";
             question.questionId = sqlite3_column_int(statement, 3);
-            
+
             [result addObject:question];
         }
         sqlite3_finalize(statement);
@@ -137,12 +138,14 @@ static DataManager *defaultDataManager = nil;
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     sqlite3_stmt *statement;
-    const char *sqlRequest = "SELECT answer.AnswerText, answer.AnswerId FROM Answer join QuestionParent on QuestionParent.AnswerId = answer.AnswerId join Question on Question.QuestionId = QuestionParent.QuestionId where (question.QuestionId = ?)";
+    const char *sqlRequest = "SELECT Answer.Answer, answer.AnswerId FROM Answer join QuestionParent on QuestionParent.AnswerId = Answer.AnswerId join Question on Question.QuestionId = QuestionParent.QuestionId where question.QuestionId = ?";
     
     int sqlResult = sqlite3_prepare_v2(database, sqlRequest, -1, &statement, NULL);
+   
     
     if(sqlResult == SQLITE_OK) {
         sqlite3_bind_int(statement,1,question.questionId);
+        
         while (sqlite3_step(statement) == SQLITE_ROW) {
             Answer *answer = [[Answer alloc] init];
             
