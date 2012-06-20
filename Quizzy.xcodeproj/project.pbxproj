@@ -14,6 +14,7 @@
 		A0240B3C1591DEAD002F637B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B3B1591DEAD002F637B /* DataManager.m */; };
 		A0240B3E1591F017002F637B /* QuizData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A0240B3D1591F017002F637B /* QuizData.sqlite */; };
 		A0240B401591F05D002F637B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A0240B3F1591F05D002F637B /* libsqlite3.0.dylib */; };
+		A0240B4715921502002F637B /* UserChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B4615921502002F637B /* UserChoice.m */; };
 		A0D2F1A01590D30900C24063 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F19F1590D30900C24063 /* UIKit.framework */; };
 		A0D2F1A21590D30900C24063 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A11590D30900C24063 /* Foundation.framework */; };
 		A0D2F1A41590D30900C24063 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A31590D30900C24063 /* CoreGraphics.framework */; };
@@ -35,6 +36,8 @@
 		A0240B3B1591DEAD002F637B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A0240B3D1591F017002F637B /* QuizData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuizData.sqlite; sourceTree = "<group>"; };
 		A0240B3F1591F05D002F637B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		A0240B4515921502002F637B /* UserChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserChoice.h; sourceTree = "<group>"; };
+		A0240B4615921502002F637B /* UserChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserChoice.m; sourceTree = "<group>"; };
 		A0D2F19B1590D30900C24063 /* Quizzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2F19F1590D30900C24063 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A0D2F1A11590D30900C24063 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +75,8 @@
 				A0240B381591DE5A002F637B /* Answer.m */,
 				A0240B3A1591DEAD002F637B /* DataManager.h */,
 				A0240B3B1591DEAD002F637B /* DataManager.m */,
+				A0240B4515921502002F637B /* UserChoice.h */,
+				A0240B4615921502002F637B /* UserChoice.m */,
 			);
 			name = "Data Manager";
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				A0240B361591DD78002F637B /* Question.m in Sources */,
 				A0240B391591DE5A002F637B /* Answer.m in Sources */,
 				A0240B3C1591DEAD002F637B /* DataManager.m in Sources */,
+				A0240B4715921502002F637B /* UserChoice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

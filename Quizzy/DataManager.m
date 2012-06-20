@@ -9,6 +9,7 @@
 #import <sqlite3.h>
 #import "DataManager.h"
 #import "Question.h"
+#import "UserChoice.h"
 
 static DataManager *defaultDataManager = nil;
 
@@ -22,6 +23,8 @@ static DataManager *defaultDataManager = nil;
 @end
 
 @implementation DataManager
+
+@synthesize userChoices;
 
 + (DataManager *)defaultDataManager {
     if (!defaultDataManager) {
@@ -48,6 +51,7 @@ static DataManager *defaultDataManager = nil;
     }
     self = [super init];
     
+    userChoices = [[NSMutableArray alloc] init];
     [self initDB];
     
     return self;
@@ -200,6 +204,13 @@ static DataManager *defaultDataManager = nil;
     }
     
     return categorizedQuestions;
+}
+
+- (void)addChoice:(NSString *)answerText withQuestion:(NSString *)questionText {
+    UserChoice *userChoice = [[UserChoice alloc] init];
+    userChoice.answer = answerText;
+    userChoice.question = questionText;
+    [self.userChoices addObject:userChoice];
 }
 
 @end

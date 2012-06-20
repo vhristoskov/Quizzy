@@ -12,6 +12,8 @@
 
 @interface DataManager : NSObject
 
+@property (nonatomic, strong) NSMutableArray *userChoices;
+
 + (DataManager *)defaultDataManager;
 
 - (NSArray *)fetchMainQuestions;
@@ -19,4 +21,6 @@
 - (NSArray *)fetchAnswersForQuestion:(Question *)question;
 - (NSArray *)categorizeQuestions:(NSArray *)questions;
 - (NSArray *)fetchSections;
+- (void)addChoice:(NSString *)answerText withQuestion:(NSString *)questionText;
+
 @end
