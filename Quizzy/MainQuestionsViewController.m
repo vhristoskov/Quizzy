@@ -68,9 +68,10 @@
     
     NSDictionary *sectionDict = [self.sections objectAtIndex:[indexPath section]];
     NSArray *sectionQuestions = [sectionDict objectForKey:@"questions"];
-    NSString *questionText = [[sectionQuestions objectAtIndex:[indexPath row]] questionText];
+    Question *question = [sectionQuestions objectAtIndex:[indexPath row]];
+    NSString *questionText = [question questionText];
     
-    if ([[[DataManager defaultDataManager] userChoices] valueForKey:questionText]) {
+    if ([[[DataManager defaultDataManager] userChoices] questionIsAnswered:[NSNumber numberWithInt:question.questionId]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -128,7 +129,7 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
         
-        NSString *messageBody = [[DataManager defaultDataManager] getChoicesAsText];
+        NSString *messageBody = [[DataManager defaultDataManager] fetchEmailBody];
         [mailer setMessageBody:messageBody isHTML:NO];
         
         [self presentModalViewController:mailer animated:YES];
@@ -169,13 +170,16 @@
 # pragma mark - AnswerDelegate methods
 
 - (void)didSubmitAnswer:(Answer *)answer withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question {
-    [[DataManager defaultDataManager] addChoice:answer.answerText withQuestion:question.questionText];
+    [self.tableView reloadData];
+    [[DataManager defaultDataManager] addAnswers:answer forQuestion:[NSNumber numberWithInt:question.questionId]];
     
-    SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
-    subquestionsVC.previousQuestion = question.questionText;
-    subquestionsVC.tableData = subquestions;
-    
-    [self.navigationController pushViewController:subquestionsVC animated:YES];
+    if ([subquestions count] > 0) {
+        SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
+        subquestionsVC.previousQuestion = question.questionText;
+        subquestionsVC.tableData = subquestions;
+        
+        [self.navigationController pushViewController:subquestionsVC animated:YES];
+    }
 }
 
 @end

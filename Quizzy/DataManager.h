@@ -9,20 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "Question.h"
 #import "Answer.h"
+#import "UserChoices.h"
 
 @interface DataManager : NSObject
 
-@property (nonatomic, strong) NSMutableDictionary *userChoices;
+@property (nonatomic, strong) UserChoices *userChoices;
 
 + (DataManager *)defaultDataManager;
 
+- (NSDictionary *)fetchAllQuestions;
 - (NSArray *)fetchMainQuestions;
 - (NSArray *)fetchSubquestionsOfQuestion:(Question *)question forAnswer:(Answer *)answer;
 - (NSArray *)fetchAnswersForQuestion:(Question *)question;
 - (NSArray *)categorizeQuestions:(NSArray *)questions;
 - (NSArray *)fetchSections;
 
-- (void)addChoice:(NSString *)answerText withQuestion:(NSString *)questionText;
-- (NSString *)getChoicesAsText;
+- (void)addAnswers:(NSObject *)answerObject forQuestion:(NSNumber *)questionId;
+- (NSString *)fetchEmailBody;
 
 @end
