@@ -81,6 +81,14 @@
     }
 }
 
+- (Answer *)fetchAnswerToSingleChoiceQuestion:(NSNumber *)questionId {
+    if (![self questionIsAnswered:questionId]) {
+        return nil;
+    }
+    Answer *answer = [self.questionAndAnswers objectForKey:questionId];
+    return answer;
+}
+
 # pragma mark - private methods
 
 - (NSDictionary *)sortQuestionAnswers {

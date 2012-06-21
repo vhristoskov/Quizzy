@@ -11,6 +11,7 @@
 #import "Answer.h"
 #import "Question.h"
 #import "SubquestionsViewController.h"
+#import "UserChoices.h"
 //#import "CustomAnimationUtilities.h"
 
 @interface SingleChoiceViewController ()
@@ -59,15 +60,6 @@
     [super viewWillAppear:animated];
     self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:self.question];
     self.questionLabel.text = self.question.questionText;
-    
-    Answer *answer = [[DataManager defaultDataManager].userChoices objectForKey:self.question.questionText];
-    NSInteger answerIndex = (answer) ? answer.answerId:0;
-    [self.singleChoicePickerView selectRow:answerIndex inComponent:0 animated:NO];
-    
-    //If there is no answer already in the dictionary, then we select first choice in the picker
-    if(!answerIndex){
-        self.answerChoice = [self.answers objectAtIndex:answerIndex];
-    }
 }
 
 

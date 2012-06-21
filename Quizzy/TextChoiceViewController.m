@@ -42,11 +42,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.questionTitle.text = self.question.questionText;
-    Answer *answer = [[DataManager defaultDataManager].userChoices  objectForKey:question.questionText];
-    if(answer){
-        self.answerTextView.text = answer.answerText;
-    }
-    
 }
 
 - (void)viewDidUnload

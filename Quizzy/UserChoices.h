@@ -18,6 +18,7 @@
 - (void)addAnswers:(NSArray *)answers toMultipleChoiceQuestion:(NSNumber *)questionId;
 - (void)addAnswer:(Answer *)answer toTextQuestion:(NSNumber *)questionId;
 - (NSString *)prepareEmailBody;
-- (BOOL)questionIsAnswered:(NSNumber *)question;
+- (BOOL)questionIsAnswered:(NSNumber *)questionId;
+- (Answer *)fetchAnswerToSingleChoiceQuestion:(NSNumber *)questionId;
 
 @end
