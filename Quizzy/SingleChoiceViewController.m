@@ -11,6 +11,7 @@
 #import "Answer.h"
 #import "Question.h"
 #import "SubquestionsViewController.h"
+#import "UserChoices.h"
 //#import "CustomAnimationUtilities.h"
 
 @interface SingleChoiceViewController ()
@@ -59,6 +60,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+
    
 //    Answer *answer = [[DataManager defaultDataManager].userChoices objectForKey:self.question.questionText];
 //    NSInteger answerIndex = (answer) ? answer.answerId:0;
@@ -68,6 +70,10 @@
 //    if(!answerIndex){
 //        self.answerChoice = [self.answers objectAtIndex:answerIndex];
 //    }
+
+    self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:self.question];
+    self.questionLabel.text = self.question.questionText;
+
 }
 
 

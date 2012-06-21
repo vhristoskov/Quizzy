@@ -10,10 +10,12 @@
 #import "Question.h"
 #import "CustomLabel.h"
 #import "DataManager.h"
+#import "SingleChoiceViewController.h"
 
 @interface SubquestionsViewController ()
 
 - (void)displayPreviousQuestion;
+- (void)goHome;
 
 @end
 
@@ -30,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self displayPreviousQuestion];
+    UIBarButtonItem *goHomeBtn = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStyleBordered target:self action:@selector(goHome)];
+    [self.navigationItem setRightBarButtonItem:goHomeBtn];
 }
 
 - (void)viewDidUnload {
@@ -49,7 +53,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    NSLog(@"%@", [self.tableData count]);
     return [self.tableData count];
 }
 
@@ -62,9 +65,11 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     Question *question = [self.tableData objectAtIndex:[indexPath row]];
+    [cell.textLabel setNumberOfLines:2];
+    [cell.textLabel setFont:[UIFont systemFontOfSize:17]];
     [cell.textLabel setText:question.questionText];
     
-    if ([[[DataManager defaultDataManager] userChoices] valueForKey:question.questionText]) {
+    if ([[[DataManager defaultDataManager] userChoices] questionIsAnswered:[NSNumber numberWithInt:question.questionId]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -83,10 +88,13 @@
     
     switch (question.questionType) {
         case 0:
-            // load single choice type question view controller
-            // set its answers and question properties
-            // push it to the navigation controller
+        {    
+            SingleChoiceViewController *singleChoiceVC = [[SingleChoiceViewController alloc]initWithNibName:@"SingleChoiceViewController" bundle:nil];
+            singleChoiceVC.question = question;
+            singleChoiceVC.delegate = self;
+            [self presentModalViewController:singleChoiceVC animated:YES];
             break;
+        }  
         case 1:
             // load multiple choice type question view controller
             // set its answers and question properties
@@ -115,16 +123,23 @@
     [self.tableView setTableHeaderView:previousQuestionLabel];
 }
 
+- (void)goHome {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 # pragma mark - AnswerDelegate methods
 
 - (void)didSubmitAnswer:(Answer *)answer withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question {
-    [[DataManager defaultDataManager] addChoice:answer withQuestion:question.questionText];
+    [self.tableView reloadData];
+    [[DataManager defaultDataManager] addAnswers:answer forQuestion:[NSNumber numberWithInt:question.questionId]];
     
-    SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
-    subquestionsVC.previousQuestion = question.questionText;
-    subquestionsVC.tableData = subquestions;
-    
-    [self.navigationController pushViewController:subquestionsVC animated:YES];
+    if ([subquestions count] > 0) {
+        SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
+        subquestionsVC.previousQuestion = question.questionText;
+        subquestionsVC.tableData = subquestions;
+        
+        [self.navigationController pushViewController:subquestionsVC animated:YES];
+    }
 }
 
 @end

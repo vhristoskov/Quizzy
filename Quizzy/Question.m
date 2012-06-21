@@ -14,6 +14,5 @@
 @synthesize questionText;
 @synthesize questionType;
 @synthesize questionSection;
-@synthesize questionParent;
 
 @end

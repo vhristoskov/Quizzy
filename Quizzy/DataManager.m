@@ -50,7 +50,7 @@ static DataManager *defaultDataManager = nil;
     }
     self = [super init];
     
-    userChoices = [[NSMutableDictionary alloc] init];
+    userChoices = [[UserChoices alloc] init];
     [self initDB];
     
     return self;
@@ -71,6 +71,37 @@ static DataManager *defaultDataManager = nil;
     if (sqlite3_close(database) != SQLITE_OK) {
         NSAssert1(0, @"Error: failed to close database: ‘%s’.", sqlite3_errmsg(database));
     }
+}
+
+- (NSDictionary *)fetchAllQuestions {
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+    
+    const char *sqlRequest = "SELECT q.QuestionText, q.QuestionType, s.SectionText, q.QuestionId FROM Question q join Section s on q.QuestionSectionId = s.sectionId";
+    
+    sqlite3_stmt *statement;
+    int sqlResult = sqlite3_prepare_v2(database, sqlRequest, -1, &statement, NULL);
+    
+    if (sqlResult == SQLITE_OK) {
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            Question *question = [[Question alloc] init];
+            
+            char *questionText = (char *)sqlite3_column_text(statement, 0);
+            question.questionText = (questionText) ? [NSString stringWithUTF8String:questionText] : @"";
+            question.questionType = sqlite3_column_int(statement, 1);
+            char *questionSection = (char *)sqlite3_column_text(statement, 2);
+            question.questionSection = (questionSection) ? [NSString stringWithUTF8String:questionSection] : @"";
+            question.questionId = sqlite3_column_int(statement, 3);
+            
+            NSNumber *questionId = [NSNumber numberWithInt:question.questionId];
+            [result setObject:question forKey:questionId];
+        }
+        sqlite3_finalize(statement);
+    } else {
+        NSLog(@"Problem with the database:");
+        NSLog(@"%d", sqlResult);
+    }
+    
+    return result;
 }
 
 - (NSArray *)fetchMainQuestions {
@@ -208,22 +239,18 @@ static DataManager *defaultDataManager = nil;
     return categorizedQuestions;
 }
 
-- (void)addChoice:(Answer *)answer withQuestion:(NSString *)questionText {
-    [self.userChoices setValue:answer forKey:questionText];
+- (void)addAnswers:(NSObject *)answerObject forQuestion:(NSNumber *)questionId {
+    if ([answerObject isKindOfClass:[Answer class]]) {
+        Answer *answer = (Answer *)answerObject;
+        [self.userChoices addAnswer:answer toSingleChoiceQuestion:questionId];
+    } else if ([answerObject isKindOfClass:[NSArray class]]) {
+        NSArray *answers = (NSArray *)answerObject;
+        [self.userChoices addAnswers:answers toMultipleChoiceQuestion:questionId];
+    }
 }
 
-
-- (NSString *)getChoicesAsText {
-    NSMutableString *choices = [[NSMutableString alloc] init];
-    
-    NSArray *questions = [self.userChoices allKeys];
-    for (NSString *question in questions) {
-        NSString *answer = [[self.userChoices valueForKey:question] answerText];
-        NSString *choice = [NSString stringWithFormat:@"Question: %@\nAnswer: %@\n", question, answer];
-        [choices appendString:choice];
-    }
-    
-    return choices;
+- (NSString *)fetchEmailBody {
+    return [self.userChoices prepareEmailBody];
 }
 
 @end
