@@ -92,6 +92,15 @@
     return answer;
 }
 
+- (NSArray *)fetchAllAnswersFromQuestion:(NSNumber *)questionId {
+    self.sortedQuestionAnswers = [self sortQuestionAnswers];
+
+    Question *question = [self.questionsWithIds objectForKey:questionId];
+    NSArray *sectionQuestionAnswers = [self.sortedQuestionAnswers objectForKey:question.questionSection];
+    
+    return sectionQuestionAnswers;
+}
+
 # pragma mark - private methods
 
 - (NSDictionary *)sortQuestionAnswers {
@@ -168,7 +177,6 @@
     for (Question *q in subquestions) {
         NSNumber *subquestionId = [NSNumber numberWithInt:q.questionId];
         [subquestionIds addObject:subquestionId];
-        //[self.questionAndAnswers removeObjectForKey:subquestionId];
         [self removeSubquestionsforQuestion:subquestionId withNewAnswer:nil];
     }
     
