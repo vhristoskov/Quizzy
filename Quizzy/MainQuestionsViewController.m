@@ -10,6 +10,7 @@
 #import "SubquestionsViewController.h"
 #import "DataManager.h"
 #import "SingleChoiceViewController.h"
+#import "TextChoiceViewController.h"
 #include <MessageUI/MessageUI.h>
 
 @interface MainQuestionsViewController () <MFMailComposeViewControllerDelegate>
@@ -111,11 +112,15 @@
             // set its answers and question properties
             // push it to the navigation controller
             break;
-        case 3:
-            // load text choice type question view controller
-            // set its answers and question properties
-            // push it to the navigation controller
+        case 2:
+        {
+            TextChoiceViewController *textChoiceVC = [[TextChoiceViewController alloc] initWithNibName:@"TextChoiceViewController" bundle:nil];
+            textChoiceVC.question = [sectionQuestions objectAtIndex:[indexPath row]];
+            textChoiceVC.delegate = self;
+            [self presentModalViewController:textChoiceVC animated:YES];
+            
             break;
+        }
         default:
             break;
     }

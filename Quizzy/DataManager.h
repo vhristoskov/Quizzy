@@ -23,7 +23,6 @@
 - (NSArray *)fetchAnswersForQuestion:(Question *)question;
 - (NSArray *)categorizeQuestions:(NSArray *)questions;
 - (NSArray *)fetchSections;
-
 - (void)addAnswers:(NSObject *)answerObject forQuestion:(NSNumber *)questionId;
 - (NSString *)fetchEmailBody;
 

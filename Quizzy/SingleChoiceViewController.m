@@ -48,6 +48,7 @@
     [self setAnswers:nil];
     [self setQuestion:nil];
     [self setQuestionLabel:nil];
+    [self setAnswerChoice: nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -58,6 +59,15 @@
     [super viewWillAppear:animated];
     self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:self.question];
     self.questionLabel.text = self.question.questionText;
+    
+    Answer *answer = [[DataManager defaultDataManager].userChoices objectForKey:self.question.questionText];
+    NSInteger answerIndex = (answer) ? answer.answerId:0;
+    [self.singleChoicePickerView selectRow:answerIndex inComponent:0 animated:NO];
+    
+    //If there is no answer already in the dictionary, then we select first choice in the picker
+    if(!answerIndex){
+        self.answerChoice = [self.answers objectAtIndex:answerIndex];
+    }
 }
 
 
@@ -88,7 +98,6 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSLog(@"%@", [[self.answers objectAtIndex:row] answerText]);
     self.answerChoice = [self.answers objectAtIndex:row];
-    
 }
 
 
