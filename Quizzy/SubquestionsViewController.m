@@ -118,7 +118,7 @@
 # pragma mark - AnswerDelegate methods
 
 - (void)didSubmitAnswer:(Answer *)answer withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question {
-    [[DataManager defaultDataManager] addChoice:answer.answerText withQuestion:question.questionText];
+    [[DataManager defaultDataManager] addChoice:answer withQuestion:question.questionText];
     
     SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
     subquestionsVC.previousQuestion = question.questionText;

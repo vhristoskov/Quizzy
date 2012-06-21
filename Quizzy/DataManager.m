@@ -208,16 +208,17 @@ static DataManager *defaultDataManager = nil;
     return categorizedQuestions;
 }
 
-- (void)addChoice:(NSString *)answerText withQuestion:(NSString *)questionText {
-    [self.userChoices setValue:answerText forKey:questionText];
+- (void)addChoice:(Answer *)answer withQuestion:(NSString *)questionText {
+    [self.userChoices setValue:answer forKey:questionText];
 }
+
 
 - (NSString *)getChoicesAsText {
     NSMutableString *choices = [[NSMutableString alloc] init];
     
     NSArray *questions = [self.userChoices allKeys];
     for (NSString *question in questions) {
-        NSString *answer = [self.userChoices valueForKey:question];
+        NSString *answer = [[self.userChoices valueForKey:question] answerText];
         NSString *choice = [NSString stringWithFormat:@"Question: %@\nAnswer: %@\n", question, answer];
         [choices appendString:choice];
     }

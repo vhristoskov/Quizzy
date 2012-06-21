@@ -22,7 +22,7 @@
 - (NSArray *)categorizeQuestions:(NSArray *)questions;
 - (NSArray *)fetchSections;
 
-- (void)addChoice:(NSString *)answerText withQuestion:(NSString *)questionText;
+- (void)addChoice:(Answer *)answer withQuestion:(NSString *)questionText;
 - (NSString *)getChoicesAsText;
 
 @end
