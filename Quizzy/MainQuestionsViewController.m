@@ -80,7 +80,8 @@
 
     UIImage *image = [UIImage imageNamed:@"Question"];
     [cell.imageView setImage:image];
-
+    
+    [cell.textLabel setNumberOfLines:2];
     [cell.textLabel setText:questionText];
     return cell;
 }
