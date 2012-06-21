@@ -10,6 +10,7 @@
 #import "SubquestionsViewController.h"
 #import "DataManager.h"
 #import "SingleChoiceViewController.h"
+#import "TextChoiceViewController.h"
 #include <MessageUI/MessageUI.h>
 
 @interface MainQuestionsViewController () <MFMailComposeViewControllerDelegate>
@@ -110,11 +111,15 @@
             // set its answers and question properties
             // push it to the navigation controller
             break;
-        case 3:
-            // load text choice type question view controller
-            // set its answers and question properties
-            // push it to the navigation controller
+        case 2:
+        {
+            TextChoiceViewController *textChoiceVC = [[TextChoiceViewController alloc] initWithNibName:@"TextChoiceViewController" bundle:nil];
+            textChoiceVC.question = [sectionQuestions objectAtIndex:[indexPath row]];
+            textChoiceVC.delegate = self;
+            [self presentModalViewController:textChoiceVC animated:YES];
+            
             break;
+        }
         default:
             break;
     }
@@ -170,11 +175,15 @@
 
 - (void)didSubmitAnswer:(Answer *)answer withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question {
     [[DataManager defaultDataManager] addChoice:answer withQuestion:question.questionText];
-    SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
-    subquestionsVC.previousQuestion = question.questionText;
-    subquestionsVC.tableData = subquestions;
     
+    if(subquestions){
+        SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
+        subquestionsVC.previousQuestion = question.questionText;
+        subquestionsVC.tableData = subquestions;
     [self.navigationController pushViewController:subquestionsVC animated:YES];
+    }
+        
+    
 }
 
 @end
