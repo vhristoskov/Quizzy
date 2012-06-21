@@ -48,6 +48,7 @@
     [self setAnswers:nil];
     [self setQuestion:nil];
     [self setQuestionLabel:nil];
+    [self setAnswerChoice: nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -58,6 +59,8 @@
     [super viewWillAppear:animated];
     self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:self.question];
     self.questionLabel.text = self.question.questionText;
+    [self.singleChoicePickerView selectRow:0 inComponent:0 animated:YES];
+    self.answerChoice = [self.answers objectAtIndex:0];
 }
 
 
