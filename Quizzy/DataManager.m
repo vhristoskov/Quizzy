@@ -50,7 +50,6 @@ static DataManager *defaultDataManager = nil;
     }
     self = [super init];
     
-    userChoices = [[UserChoices alloc] init];
     [self initDB];
     
     return self;
@@ -105,6 +104,8 @@ static DataManager *defaultDataManager = nil;
 }
 
 - (NSArray *)fetchMainQuestions {
+    userChoices = [[UserChoices alloc] init];
+    
     NSMutableArray *result = [[NSMutableArray alloc] init];
     const char *sqlRequest = "SELECT q.QuestionText, q.QuestionType, s.SectionText, q.QuestionId FROM Question q join Section s on q.QuestionSectionId = s.sectionId where q.QuestionParentId is null";
     sqlite3_stmt *statement;
