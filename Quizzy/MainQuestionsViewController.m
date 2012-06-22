@@ -141,7 +141,9 @@
             SingleChoiceViewController *singleChoiceVC = [[SingleChoiceViewController alloc]initWithNibName:@"SingleChoiceViewController" bundle:nil];
             singleChoiceVC.question = self.selectedQuestion;
             singleChoiceVC.delegate = self;
-            [self presentModalViewController:singleChoiceVC animated:YES];
+            UINavigationController *singleChoiceNC = [[UINavigationController alloc] initWithRootViewController:singleChoiceVC];
+
+            [self presentModalViewController:singleChoiceNC animated:YES];
             break;
         }        
         case 1:
