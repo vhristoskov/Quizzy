@@ -47,9 +47,7 @@
 
 - (void)addAnswers:(NSArray *)answers toMultipleChoiceQuestion:(NSNumber *)questionId {
     if ([self questionIsAnswered:questionId]) {
-        for (Answer *answer in answers) {
-            [self removeSubquestionsforQuestion:questionId withNewAnswer:answer];
-        }
+        [self removeSubquestionsforQuestion:questionId withNewAnswers:answers];
     }
     [self.questionAndAnswers setObject:answers forKey:questionId];
 }
@@ -209,6 +207,29 @@
         NSNumber *subquestionId = [NSNumber numberWithInt:q.questionId];
         [subquestionIds addObject:subquestionId];
         [self removeSubquestionsforQuestion:subquestionId withNewAnswer:nil];
+    }
+    
+    [self.questionAndAnswers removeObjectsForKeys:subquestionIds];
+}
+
+- (void)removeSubquestionsforQuestion:(NSNumber *)questionId withNewAnswers:(NSArray *)newAnswers {
+    NSArray *oldAnswers = [self.questionAndAnswers objectForKey:questionId];
+    
+    Question *question = [self.questionsWithIds objectForKey:questionId];
+    NSArray *subquestions = [[DataManager defaultDataManager] fetchSubquestionsOfQuestion:question forAnswers:oldAnswers];
+    if ([subquestions count] == 0) {
+        return;
+    }
+    
+    NSMutableArray *subquestionIds = [[NSMutableArray alloc] init];
+    for (Question *q in subquestions) {
+        NSNumber *subquestionId = [NSNumber numberWithInt:q.questionId];
+        [subquestionIds addObject:subquestionId];
+        if (q.questionType == 0) {
+            [self removeSubquestionsforQuestion:subquestionId withNewAnswer:nil];
+        } else {
+            [self removeSubquestionsforQuestion:subquestionId withNewAnswers:nil];
+        }
     }
     
     [self.questionAndAnswers removeObjectsForKeys:subquestionIds];
