@@ -29,6 +29,9 @@
     
     UIBarButtonItem *goBackBtn = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
     [self.navigationItem setLeftBarButtonItem:goBackBtn];
+    
+    UIBarButtonItem *sendMailBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(sendMail)];
+    [self.navigationItem setRightBarButtonItem:sendMailBtn];
 }
 
 - (void)viewDidUnload {
@@ -42,6 +45,10 @@
 
 - (void)close {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)sendMail {
+    //..
 }
 
 #pragma mark - Table view data source
