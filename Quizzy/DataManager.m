@@ -26,6 +26,7 @@ static DataManager *defaultDataManager = nil;
 @implementation DataManager
 @synthesize userChoices;
 @synthesize currentLevel;
+@synthesize questions;
 
 + (DataManager *)defaultDataManager {
     if (!defaultDataManager) {

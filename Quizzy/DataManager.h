@@ -14,6 +14,7 @@
 @interface DataManager : NSObject
 
 @property (nonatomic, strong) UserChoices *userChoices;
+@property (nonatomic, strong) NSMutableArray *questions;
 
 + (DataManager *)defaultDataManager;
 
