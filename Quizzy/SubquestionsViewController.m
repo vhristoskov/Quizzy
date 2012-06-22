@@ -76,8 +76,7 @@
     if ([[[DataManager defaultDataManager] userChoices] questionIsAnswered:[NSNumber numberWithInt:question.questionId]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     UIImage *image = [UIImage imageNamed:@"Question"];

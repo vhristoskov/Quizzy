@@ -14,5 +14,8 @@
 @property (nonatomic, strong) NSString *questionText;
 @property (nonatomic, strong) NSString *questionSection;
 @property (nonatomic) NSInteger questionType;
+@property (nonatomic) NSInteger questionLevel;
+@property (nonatomic, strong) NSArray *answers;
+@property (nonatomic, strong) NSArray *subquestions;
 
 @end
