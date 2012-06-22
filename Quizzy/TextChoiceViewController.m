@@ -83,8 +83,8 @@
     answer.answerId = NSIntegerMax;
     answer.answerText = self.answerTextView.text;
 
-    if([self.delegate respondsToSelector:@selector(didSubmitAnswer:withSubquestions:forQuestion:)]){
-        [self.delegate didSubmitAnswer:answer withSubquestions:nil forQuestion:self.question];
+    if([self.delegate respondsToSelector:@selector(didSubmitTextAnswer:forQuestion:)]){
+        [self.delegate didSubmitTextAnswer:answer forQuestion:self.question];
     }
     [self dismissModalViewControllerAnimated:YES];
 }

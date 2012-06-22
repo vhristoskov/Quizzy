@@ -12,9 +12,11 @@
 
 @interface MultipleChoiceViewController ()
 @property(strong, nonatomic) NSArray *answers;
+@property(strong, nonatomic) NSMutableArray *choosenAnswers;
+
 -(IBAction)cancelMultipleChoice:(id)sender;
 -(IBAction)submitMultipleChoice:(id)sender;
-- (void)createToolbarView;
+- (void)configureToolbarView;
 
 @end
 
@@ -22,6 +24,7 @@
 @synthesize question;
 @synthesize answers;
 @synthesize delegate;
+@synthesize choosenAnswers;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,8 +38,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.choosenAnswers = [NSMutableArray array];
     self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:question];
-    [self createToolbarView];
+    self.title = self.question.questionText;
+    [self configureToolbarView];
        
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -50,6 +55,7 @@
     [self setAnswers:nil];
     [self setQuestion:nil];
     [self setDelegate:nil];
+    [self setChoosenAnswers:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -130,42 +136,60 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-  [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    [self.choosenAnswers removeObject:[answers objectAtIndex:indexPath.row]];
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    NSLog(@"%@", self.choosenAnswers);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Answer *choosenAnswer = [answers objectAtIndex:indexPath.row];
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    [self.choosenAnswers addObject:choosenAnswer];
+    NSLog(@"%@", self.choosenAnswers);
 }
 
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return self.question.questionText;
-}
+#pragma mark - CustomMethods
 
-
-- (void)createToolbarView{
+- (void)configureToolbarView{
     
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancelMultipleChoice:)];
 
     UIBarButtonItem *submitButton = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submitMultipleChoice:)];
     
     UIBarButtonItem *flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    UILabel *questionLabel = [[UILabel alloc] init];
-    [questionLabel sizeToFit];
-    questionLabel.text = self.question.questionText;
-    questionLabel.numberOfLines = 3; 
 
-    
-
-    
     [self setToolbarItems:[NSArray arrayWithObjects:cancelButton,flexibleSpaceButton,submitButton, nil ]];
     [self.navigationController setToolbarHidden:NO];
-    
-    
-    
+
 }
+
+- (void)setTitle:(NSString *)title{
+    
+    [super setTitle:title];
+    
+    UILabel *titleView = (UILabel *)self.navigationItem.titleView;
+    
+    if (!titleView) {
+        titleView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 300.0, 40.0)];
+        
+        titleView.backgroundColor = [UIColor clearColor];
+        titleView.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+        titleView.textColor = [UIColor colorWithWhite:1.0   alpha:1.0];
+        
+        titleView.textAlignment = UITextAlignmentCenter;
+        titleView.font = [UIFont boldSystemFontOfSize:17.0];    
+        titleView.numberOfLines = 3;
+        self.navigationItem.titleView = titleView;
+    }
+    
+    
+    titleView.text = title;
+        
+}
+
+#pragma mark - Button Action Methods
 
 - (void)cancelMultipleChoice:(id)sender{
     
@@ -173,11 +197,14 @@
 }
 
 - (void)submitMultipleChoice:(id)sender{
+    
+    NSArray *subquestions = [[DataManager defaultDataManager] fetchSubquestionsOfQuestion:self.question forAnswers:self.choosenAnswers];
 
+    if([self.delegate respondsToSelector:@selector(didSubmitAnswer:withSubquestions:forQuestion:)]){
+        [self.delegate didSubmitAnswer:self.choosenAnswers withSubquestions:subquestions forQuestion:self.question];
+    }
+    
     [self dismissModalViewControllerAnimated:YES];
 }
-
-
-
 
 @end

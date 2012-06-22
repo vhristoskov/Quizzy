@@ -12,6 +12,6 @@
 
 @protocol AnswerDelegate <NSObject>
 
-- (void)didSubmitAnswer:(Answer *)answer withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question;
-
+- (void)didSubmitAnswer:(NSObject *)answerObject withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question;
+- (void)didSubmitTextAnswer:(Answer *)textAnswer forQuestion:(Question *)question;
 @end
