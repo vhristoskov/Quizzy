@@ -12,6 +12,8 @@
 
 @interface MultipleChoiceViewController ()
 @property(strong, nonatomic) NSArray *answers;
+@property(strong, nonatomic) NSMutableArray *choosenAnswers;
+
 -(IBAction)cancelMultipleChoice:(id)sender;
 -(IBAction)submitMultipleChoice:(id)sender;
 - (void)configureToolbarView;
@@ -22,6 +24,7 @@
 @synthesize question;
 @synthesize answers;
 @synthesize delegate;
+@synthesize choosenAnswers;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.choosenAnswers = [NSMutableArray array];
     self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:question];
     self.title = self.question.questionText;
     [self configureToolbarView];
@@ -51,6 +55,7 @@
     [self setAnswers:nil];
     [self setQuestion:nil];
     [self setDelegate:nil];
+    [self setChoosenAnswers:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -131,16 +136,21 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-  [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    [self.choosenAnswers removeObject:[answers objectAtIndex:indexPath.row]];
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    NSLog(@"%@", self.choosenAnswers);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Answer *choosenAnswer = [answers objectAtIndex:indexPath.row];
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    [self.choosenAnswers addObject:choosenAnswer];
+    NSLog(@"%@", self.choosenAnswers);
 }
 
 
-
+#pragma mark - CustomMethods
 
 - (void)configureToolbarView{
     
@@ -179,13 +189,21 @@
         
 }
 
+#pragma mark - Button Action Methods
+
 - (void)cancelMultipleChoice:(id)sender{
     
     [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)submitMultipleChoice:(id)sender{
+    
+    NSArray *subquestions = [[DataManager defaultDataManager] fetchSubquestionsOfQuestion:self.question forAnswers:self.choosenAnswers];
 
+    if([self.delegate respondsToSelector:@selector(didSubmitAnswer:withSubquestions:forQuestion:)]){
+        [self.delegate didSubmitAnswer:self.choosenAnswers withSubquestions:subquestions forQuestion:self.question];
+    }
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

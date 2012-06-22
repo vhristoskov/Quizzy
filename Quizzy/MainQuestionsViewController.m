@@ -213,19 +213,26 @@
 
 # pragma mark - AnswerDelegate methods
 
-- (void)didSubmitAnswer:(Answer *)answer withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question {
+- (void)didSubmitAnswer:(NSObject *)answerObject withSubquestions:(NSArray *)subquestions forQuestion:(Question *)question {
     [self.tableView reloadData];
-    [[DataManager defaultDataManager] addAnswers:answer forQuestion:[NSNumber numberWithInt:question.questionId]];
     
-
+    [[DataManager defaultDataManager] addAnswers:answerObject forQuestion:[NSNumber numberWithInt:question.questionId]];
+    
     if ([subquestions count] > 0) {
         SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
         subquestionsVC.previousQuestion = question.questionText;
-        subquestionsVC.previousAnswer = answer.answerText;
         subquestionsVC.tableData = subquestions;
         
         [self.navigationController pushViewController:subquestionsVC animated:YES];
     }
 }
+
+- (void)didSubmitTextAnswer:(Answer *)textAnswer forQuestion:(Question *)question{
+    [self.tableView reloadData];
+    
+    [[DataManager defaultDataManager] addAnswers:textAnswer forQuestion:[NSNumber numberWithInt:question.questionId]];
+    
+}
+
 
 @end
