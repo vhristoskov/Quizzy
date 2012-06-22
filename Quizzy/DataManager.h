@@ -20,6 +20,7 @@
 - (NSDictionary *)fetchAllQuestions;
 - (NSArray *)fetchMainQuestions;
 - (NSArray *)fetchSubquestionsOfQuestion:(Question *)question forAnswer:(Answer *)answer;
+- (NSArray *)fetchSubquestionsOfQuestion:(Question *)question forAnswers:(NSArray *)answers;
 - (NSArray *)fetchAnswersForQuestion:(Question *)question;
 - (NSArray *)categorizeQuestions:(NSArray *)questions;
 - (NSArray *)fetchSections;

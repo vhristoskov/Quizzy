@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) NSArray *tableData;
 @property (nonatomic, strong) NSString *previousQuestion;
+@property (nonatomic, strong) NSString *previousAnswer;
 
 @end

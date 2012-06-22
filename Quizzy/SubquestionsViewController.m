@@ -12,6 +12,7 @@
 #import "DataManager.h"
 #import "MultipleChoiceViewController.h"
 #import "SingleChoiceViewController.h"
+#import "TextChoiceViewController.h"
 
 
 @interface SubquestionsViewController ()
@@ -24,6 +25,7 @@
 @implementation SubquestionsViewController
 @synthesize tableData;
 @synthesize previousQuestion;
+@synthesize previousAnswer;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -74,7 +76,8 @@
     if ([[[DataManager defaultDataManager] userChoices] questionIsAnswered:[NSNumber numberWithInt:question.questionId]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     UIImage *image = [UIImage imageNamed:@"Question"];
@@ -106,11 +109,13 @@
             [self presentModalViewController:multipleChoiceNC animated:YES];
             break;
         }
-        case 3:
-            // load text choice type question view controller
-            // set its answers and question properties
-            // push it to the navigation controller
-            break;
+        case 2:
+        {
+            TextChoiceViewController *textChoiceVC = [[TextChoiceViewController alloc] initWithNibName:@"TextChoiceViewController" bundle:nil];
+            textChoiceVC.question = question;
+            textChoiceVC.delegate = self;
+            [self presentModalViewController:textChoiceVC animated:YES];
+        }
         default:
             break;
     }

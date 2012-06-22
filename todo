@@ -1,9 +1,6 @@
 DataManager:
 	fetch subquestions for a question with multiple answers
 
-Preview Answers:
-	ask if you want to change your mind on a question you previously answered or you just want to preview your answers
-
 Main Question and Subquestion Table View Controllers:
 	add the answer as a subtitle
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AnswerDelegate.h"
 
-@interface MainQuestionsViewController : UITableViewController <AnswerDelegate>
+@interface MainQuestionsViewController : UITableViewController <AnswerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray *sections;
 

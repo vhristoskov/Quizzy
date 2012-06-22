@@ -10,4 +10,6 @@
 
 @interface PreviewAnswersViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *tableData;
+
 @end

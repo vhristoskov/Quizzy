@@ -12,20 +12,24 @@
 #import "SingleChoiceViewController.h"
 #import "MultipleChoiceViewController.h"
 #import "TextChoiceViewController.h"
+#import "PreviewAnswersViewController.h"
 #include <MessageUI/MessageUI.h>
 
 @interface MainQuestionsViewController () <MFMailComposeViewControllerDelegate>
+
+@property (nonatomic, strong) Question *selectedQuestion;
+
+- (void)openAnswerViewController;
 
 @end
 
 @implementation MainQuestionsViewController
 @synthesize sections;
+@synthesize selectedQuestion;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
-    if (self) {
-        
-    }
+    if (self) {}
     return self;
 }
 
@@ -76,7 +80,8 @@
     if ([[[DataManager defaultDataManager] userChoices] questionIsAnswered:[NSNumber numberWithInt:question.questionId]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
 
     UIImage *image = [UIImage imageNamed:@"Question"];
@@ -100,20 +105,50 @@
     NSArray *sectionQuestions = [sectionDict objectForKey:@"questions"];
     Question *question = [sectionQuestions objectAtIndex:[indexPath row]];
     
-    switch (question.questionType) {
+    self.selectedQuestion = question;
+    
+    if ([[[DataManager defaultDataManager] userChoices] questionIsAnswered:[NSNumber numberWithInt:question.questionId]]) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"What next?" message:@"Preview or edit?" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Preview", @"Edit", nil];
+        [alertView show];
+    } else {
+        [self openAnswerViewController];
+    }
+}
+
+# pragma mark - UIAlertViewDelegate methods
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        PreviewAnswersViewController *previewAnswersViewController = [[PreviewAnswersViewController alloc] 
+                                                                      initWithNibName:@"PreviewAnswersViewController" bundle:nil];
+        NSArray *allQuestionsAnswersForSection = [[[DataManager defaultDataManager] userChoices] 
+                                                  fetchAllAnswersFromQuestion:[NSNumber numberWithInt:self.selectedQuestion.questionId]];
+        previewAnswersViewController.tableData = allQuestionsAnswersForSection;
+        
+        UINavigationController *answerPreviewNavController = [[UINavigationController alloc] initWithRootViewController:previewAnswersViewController];
+        [self presentViewController:answerPreviewNavController animated:YES completion:NULL];
+    } else {
+        [self openAnswerViewController];
+    }
+}
+
+# pragma mark - private methods
+
+- (void)openAnswerViewController {
+    switch (self.selectedQuestion.questionType) {
         case 0:
         {    
             SingleChoiceViewController *singleChoiceVC = [[SingleChoiceViewController alloc]initWithNibName:@"SingleChoiceViewController" bundle:nil];
-            singleChoiceVC.question = question;
+            singleChoiceVC.question = self.selectedQuestion;
             singleChoiceVC.delegate = self;
             [self presentModalViewController:singleChoiceVC animated:YES];
             break;
         }        
         case 1:
         {
-
             MultipleChoiceViewController *multipleChoiceVC = [[MultipleChoiceViewController alloc]initWithNibName:@"MultipleChoiceViewController" bundle:nil];
-            multipleChoiceVC.question = question;
+            multipleChoiceVC.question = self.selectedQuestion;
             multipleChoiceVC.delegate = self;
             UINavigationController *multipleChoiceNC = [[UINavigationController alloc] initWithRootViewController:multipleChoiceVC];
             [self presentModalViewController:multipleChoiceNC animated:YES];
@@ -122,7 +157,7 @@
         case 2:
         {
             TextChoiceViewController *textChoiceVC = [[TextChoiceViewController alloc] initWithNibName:@"TextChoiceViewController" bundle:nil];
-            textChoiceVC.question = [sectionQuestions objectAtIndex:[indexPath row]];
+            textChoiceVC.question = self.selectedQuestion;
             textChoiceVC.delegate = self;
             [self presentModalViewController:textChoiceVC animated:YES];
             
@@ -131,10 +166,7 @@
         default:
             break;
     }
-
 }
-
-# pragma mark - private methods
 
 - (void)sendEmail {
     if ([MFMailComposeViewController canSendMail]) {
@@ -189,6 +221,7 @@
     if ([subquestions count] > 0) {
         SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
         subquestionsVC.previousQuestion = question.questionText;
+        subquestionsVC.previousAnswer = answer.answerText;
         subquestionsVC.tableData = subquestions;
         
         [self.navigationController pushViewController:subquestionsVC animated:YES];
