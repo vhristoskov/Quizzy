@@ -10,6 +10,7 @@
 #import "SubquestionsViewController.h"
 #import "DataManager.h"
 #import "SingleChoiceViewController.h"
+#import "MultipleChoiceViewController.h"
 #import "TextChoiceViewController.h"
 #import "PreviewAnswersViewController.h"
 #include <MessageUI/MessageUI.h>
@@ -145,10 +146,14 @@
             break;
         }        
         case 1:
-            // load multiple choice type question view controller
-            // set its answers and question properties
-            // push it to the navigation controller
-            break;
+        {
+            MultipleChoiceViewController *multipleChoiceVC = [[MultipleChoiceViewController alloc]initWithNibName:@"MultipleChoiceViewController" bundle:nil];
+            multipleChoiceVC.question = self.selectedQuestion;
+            multipleChoiceVC.delegate = self;
+            UINavigationController *multipleChoiceNC = [[UINavigationController alloc] initWithRootViewController:multipleChoiceVC];
+            [self presentModalViewController:multipleChoiceNC animated:YES];
+            break;        
+        }
         case 2:
         {
             TextChoiceViewController *textChoiceVC = [[TextChoiceViewController alloc] initWithNibName:@"TextChoiceViewController" bundle:nil];
@@ -212,6 +217,7 @@
     [self.tableView reloadData];
     [[DataManager defaultDataManager] addAnswers:answer forQuestion:[NSNumber numberWithInt:question.questionId]];
     
+
     if ([subquestions count] > 0) {
         SubquestionsViewController *subquestionsVC = [[SubquestionsViewController alloc] initWithNibName:@"SubquestionsViewController" bundle:nil];
         subquestionsVC.previousQuestion = question.questionText;

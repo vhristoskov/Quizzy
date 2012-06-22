@@ -39,6 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:self.question];
+     self.questionLabel.text = self.question.questionText;
  
     // Do any additional setup after loading the view from its nib.
 }
@@ -58,8 +60,23 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+
+   
+//    Answer *answer = [[DataManager defaultDataManager].userChoices objectForKey:self.question.questionText];
+//    NSInteger answerIndex = (answer) ? answer.answerId:0;
+//    [self.singleChoicePickerView selectRow:answerIndex inComponent:0 animated:NO];
+//    
+//    //If there is no answer already in the dictionary, then we select first choice in the picker
+//    if(!answerIndex){
+//        self.answerChoice = [self.answers objectAtIndex:answerIndex];
+//    }
+
+    self.answerChoice = [self.answers objectAtIndex:0];
+    [self.singleChoicePickerView selectRow:0 inComponent:0 animated:NO];
+    
     self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:self.question];
     self.questionLabel.text = self.question.questionText;
+
 }
 
 
