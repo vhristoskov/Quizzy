@@ -11,6 +11,8 @@
 		3E3778A11593675A003ED66F /* MultipleChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E37789F1593675A003ED66F /* MultipleChoiceViewController.xib */; };
 		3E8F402315933D5700AF287A /* TextChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F402115933D5700AF287A /* TextChoiceViewController.m */; };
 		3E8F402415933D5700AF287A /* TextChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8F402215933D5700AF287A /* TextChoiceViewController.xib */; };
+		3EF33BBC1594CBA300E8C5F9 /* ChoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF33BBA1594CBA200E8C5F9 /* ChoiceTableViewController.m */; };
+		3EF33BBD1594CBA300E8C5F9 /* ChoiceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF33BBB1594CBA300E8C5F9 /* ChoiceTableViewController.xib */; };
 		A015B7CA159328840031F276 /* PreviewAnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A015B7C8159328840031F276 /* PreviewAnswersViewController.m */; };
 		A015B7CB159328840031F276 /* PreviewAnswersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A015B7C9159328840031F276 /* PreviewAnswersViewController.xib */; };
 		A015B7CF15932D5A0031F276 /* UserChoices.m in Sources */ = {isa = PBXBuildFile; fileRef = A015B7CE15932D5A0031F276 /* UserChoices.m */; };
@@ -43,6 +45,9 @@
 		3E8F402015933D5700AF287A /* TextChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextChoiceViewController.h; sourceTree = "<group>"; };
 		3E8F402115933D5700AF287A /* TextChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextChoiceViewController.m; sourceTree = "<group>"; };
 		3E8F402215933D5700AF287A /* TextChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextChoiceViewController.xib; sourceTree = "<group>"; };
+		3EF33BB91594CBA200E8C5F9 /* ChoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceTableViewController.h; sourceTree = "<group>"; };
+		3EF33BBA1594CBA200E8C5F9 /* ChoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceTableViewController.m; sourceTree = "<group>"; };
+		3EF33BBB1594CBA300E8C5F9 /* ChoiceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoiceTableViewController.xib; sourceTree = "<group>"; };
 		A015B7C7159328840031F276 /* PreviewAnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewAnswersViewController.h; sourceTree = "<group>"; };
 		A015B7C8159328840031F276 /* PreviewAnswersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewAnswersViewController.m; sourceTree = "<group>"; };
 		A015B7C9159328840031F276 /* PreviewAnswersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewAnswersViewController.xib; sourceTree = "<group>"; };
@@ -134,6 +139,9 @@
 				3E37789D1593675A003ED66F /* MultipleChoiceViewController.h */,
 				3E37789E1593675A003ED66F /* MultipleChoiceViewController.m */,
 				3E37789F1593675A003ED66F /* MultipleChoiceViewController.xib */,
+				3EF33BB91594CBA200E8C5F9 /* ChoiceTableViewController.h */,
+				3EF33BBA1594CBA200E8C5F9 /* ChoiceTableViewController.m */,
+				3EF33BBB1594CBA300E8C5F9 /* ChoiceTableViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -255,6 +263,7 @@
 				A015B7CB159328840031F276 /* PreviewAnswersViewController.xib in Resources */,
 				3E8F402415933D5700AF287A /* TextChoiceViewController.xib in Resources */,
 				3E3778A11593675A003ED66F /* MultipleChoiceViewController.xib in Resources */,
+				3EF33BBD1594CBA300E8C5F9 /* ChoiceTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +287,7 @@
 				A015B7CF15932D5A0031F276 /* UserChoices.m in Sources */,
 				3E8F402315933D5700AF287A /* TextChoiceViewController.m in Sources */,
 				3E3778A01593675A003ED66F /* MultipleChoiceViewController.m in Sources */,
+				3EF33BBC1594CBA300E8C5F9 /* ChoiceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

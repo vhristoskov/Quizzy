@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AnswerDelegate.h"
+#import "ChoiceTableViewController.h"
 
 @class Question;
-@interface MultipleChoiceViewController : UITableViewController
+@interface MultipleChoiceViewController : ChoiceTableViewController
 
-@property(weak, nonatomic) id<AnswerDelegate> delegate;
-@property(retain, nonatomic) Question *question;
 @end
