@@ -165,6 +165,16 @@ static DataManager *defaultDataManager = nil;
     return result;
 }
 
+- (NSArray *)fetchSubquestionsOfQuestion:(Question *)question forAnswers:(NSArray *)answers {
+    NSMutableArray *subquestions = [[NSMutableArray alloc] init];
+    for (Answer *a in answers) {
+        NSArray *subquestionsForCurrentAnswer = [self fetchSubquestionsOfQuestion:question forAnswer:a];
+        [subquestions addObjectsFromArray:subquestionsForCurrentAnswer];
+    }
+    
+    return subquestions;
+}
+
 - (NSArray *)fetchAnswersForQuestion:(Question *)question {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     

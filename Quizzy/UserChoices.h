@@ -20,6 +20,7 @@
 - (NSString *)prepareEmailBody;
 - (BOOL)questionIsAnswered:(NSNumber *)questionId;
 - (Answer *)fetchAnswerToSingleChoiceQuestion:(NSNumber *)questionId;
+- (NSArray *)fetchAnswersToMultipleChoiceQuestion:(NSNumber *)questionId;
 - (NSArray *)fetchAllAnswersFromQuestion:(NSNumber *)questionId;
 
 @end

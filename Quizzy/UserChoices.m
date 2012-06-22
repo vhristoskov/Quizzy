@@ -101,6 +101,14 @@
     return sectionQuestionAnswers;
 }
 
+- (NSArray *)fetchAnswersToMultipleChoiceQuestion:(NSNumber *)questionId {
+    if (![self questionIsAnswered:questionId]) {
+        return nil;
+    }
+    NSArray *answers = [self.questionAndAnswers objectForKey:questionId];
+    return answers;
+}
+
 # pragma mark - private methods
 
 - (NSDictionary *)sortQuestionAnswers {
