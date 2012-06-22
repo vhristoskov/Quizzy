@@ -61,21 +61,28 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
-   
-//    Answer *answer = [[DataManager defaultDataManager].userChoices objectForKey:self.question.questionText];
-//    NSInteger answerIndex = (answer) ? answer.answerId:0;
-//    [self.singleChoicePickerView selectRow:answerIndex inComponent:0 animated:NO];
-//    
-//    //If there is no answer already in the dictionary, then we select first choice in the picker
-//    if(!answerIndex){
-//        self.answerChoice = [self.answers objectAtIndex:answerIndex];
-//    }
-
-    self.answerChoice = [self.answers objectAtIndex:0];
-    [self.singleChoicePickerView selectRow:0 inComponent:0 animated:NO];
     
-    self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:self.question];
-    self.questionLabel.text = self.question.questionText;
+    UserChoices *userChoices = [DataManager defaultDataManager].userChoices;
+    NSNumber *questionId = [NSNumber numberWithInt:self.question.questionId];
+    
+    BOOL isQuestionAnswered = [userChoices questionIsAnswered:questionId];
+    NSInteger questionArrIndex = 0;
+    
+    if(isQuestionAnswered){
+        Answer *previousAnswer = [userChoices fetchAnswerToSingleChoiceQuestion:questionId];
+        for (int i = 0; i< self.answers.count; ++i) {
+            
+            if([[[self.answers objectAtIndex:i] answerText] isEqualToString:previousAnswer.answerText]){
+                questionArrIndex = i;
+            }
+        }
+    }
+    
+    
+    self.answerChoice = [self.answers objectAtIndex:questionArrIndex];
+    [self.singleChoicePickerView selectRow:questionArrIndex inComponent:0 animated:NO];
+    
+   
 
 }
 

@@ -66,6 +66,34 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    UserChoices *userChoices = [DataManager defaultDataManager].userChoices;
+    NSNumber *questionId = [NSNumber numberWithInt:self.question.questionId];
+
+    BOOL isQuestionAnswered = [ userChoices questionIsAnswered:questionId];
+    
+    if(isQuestionAnswered){
+        NSArray* previousAnswers = [userChoices fetchAnswersToMultipleChoiceQuestion:questionId];
+
+        NSIndexPath *answerIndexPath;
+        for (Answer *answ in previousAnswers) {
+            for (int i = 0; i< self.answers.count; ++i) {
+                Answer* currAnswer = [self.answers objectAtIndex:i];
+                if([currAnswer.answerText isEqualToString:answ.answerText]){
+                    answerIndexPath = [NSIndexPath indexPathForRow:i inSection:0];
+                    [self.tableView selectRowAtIndexPath:answerIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+                    [self.tableView cellForRowAtIndexPath:answerIndexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+                    [self.choosenAnswers addObject:currAnswer];
+                    break;
+                }
+            
+            }
+        }
+    }  
+
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -136,14 +164,14 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.choosenAnswers removeObject:[answers objectAtIndex:indexPath.row]];
+    [self.choosenAnswers removeObject:[self.answers objectAtIndex:indexPath.row]];
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
     NSLog(@"%@", self.choosenAnswers);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Answer *choosenAnswer = [answers objectAtIndex:indexPath.row];
+    Answer *choosenAnswer = [self.answers objectAtIndex:indexPath.row];
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
     [self.choosenAnswers addObject:choosenAnswer];
     NSLog(@"%@", self.choosenAnswers);
