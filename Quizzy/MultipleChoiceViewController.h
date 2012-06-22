@@ -10,15 +10,8 @@
 #import "AnswerDelegate.h"
 
 @class Question;
-@interface MultipleChoiceViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource>
+@interface MultipleChoiceViewController : UITableViewController
 
-@property (strong, nonatomic) Question *question;
-@property (strong, nonatomic) id<AnswerDelegate> delegate;
-
-@property (strong, nonatomic) IBOutlet UIPickerView *multipleChoicePickerView;
-@property (strong, nonatomic) IBOutlet UILabel *questionLabel;
-
-- (IBAction)cancelMultipleChoice:(id)sender;
-- (IBAction)submitMultipleChoice:(id)sender;
-
+@property(weak, nonatomic) id<AnswerDelegate> delegate;
+@property(retain, nonatomic) Question *question;
 @end

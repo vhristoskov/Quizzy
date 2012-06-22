@@ -103,17 +103,19 @@
         case 0:
         {    
             SingleChoiceViewController *singleChoiceVC = [[SingleChoiceViewController alloc]initWithNibName:@"SingleChoiceViewController" bundle:nil];
-            singleChoiceVC.question = [sectionQuestions objectAtIndex:[indexPath row]];
+            singleChoiceVC.question = question;
             singleChoiceVC.delegate = self;
             [self presentModalViewController:singleChoiceVC animated:YES];
             break;
         }        
         case 1:
         {
+
             MultipleChoiceViewController *multipleChoiceVC = [[MultipleChoiceViewController alloc]initWithNibName:@"MultipleChoiceViewController" bundle:nil];
-            multipleChoiceVC.question = [sectionQuestions objectAtIndex:[indexPath row]];
+            multipleChoiceVC.question = question;
             multipleChoiceVC.delegate = self;
-            [self presentModalViewController:multipleChoiceVC animated:YES];
+            UINavigationController *multipleChoiceNC = [[UINavigationController alloc] initWithRootViewController:multipleChoiceVC];
+            [self presentModalViewController:multipleChoiceNC animated:YES];
             break;        
         }
         case 2:

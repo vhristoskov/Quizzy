@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E3778A01593675A003ED66F /* MultipleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E37789E1593675A003ED66F /* MultipleChoiceViewController.m */; };
+		3E3778A11593675A003ED66F /* MultipleChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E37789F1593675A003ED66F /* MultipleChoiceViewController.xib */; };
+		3E8F402315933D5700AF287A /* TextChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F402115933D5700AF287A /* TextChoiceViewController.m */; };
+		3E8F402415933D5700AF287A /* TextChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8F402215933D5700AF287A /* TextChoiceViewController.xib */; };
 		A015B7CA159328840031F276 /* PreviewAnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A015B7C8159328840031F276 /* PreviewAnswersViewController.m */; };
 		A015B7CB159328840031F276 /* PreviewAnswersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A015B7C9159328840031F276 /* PreviewAnswersViewController.xib */; };
 		A015B7CF15932D5A0031F276 /* UserChoices.m in Sources */ = {isa = PBXBuildFile; fileRef = A015B7CE15932D5A0031F276 /* UserChoices.m */; };
-		3E8F402315933D5700AF287A /* TextChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F402115933D5700AF287A /* TextChoiceViewController.m */; };
-		3E8F402415933D5700AF287A /* TextChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8F402215933D5700AF287A /* TextChoiceViewController.xib */; };
-		3E8F402D1593503300AF287A /* MultipleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F402B1593503300AF287A /* MultipleChoiceViewController.m */; };
-		3E8F402E1593503300AF287A /* MultipleChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8F402C1593503300AF287A /* MultipleChoiceViewController.xib */; };
 		A0240B2B1591CF1D002F637B /* MainQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B291591CF1D002F637B /* MainQuestionsViewController.m */; };
 		A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */; };
 		A0240B361591DD78002F637B /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B351591DD78002F637B /* Question.m */; };
@@ -37,17 +37,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E37789D1593675A003ED66F /* MultipleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleChoiceViewController.h; sourceTree = "<group>"; };
+		3E37789E1593675A003ED66F /* MultipleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleChoiceViewController.m; sourceTree = "<group>"; };
+		3E37789F1593675A003ED66F /* MultipleChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleChoiceViewController.xib; sourceTree = "<group>"; };
+		3E8F402015933D5700AF287A /* TextChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextChoiceViewController.h; sourceTree = "<group>"; };
+		3E8F402115933D5700AF287A /* TextChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextChoiceViewController.m; sourceTree = "<group>"; };
+		3E8F402215933D5700AF287A /* TextChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextChoiceViewController.xib; sourceTree = "<group>"; };
 		A015B7C7159328840031F276 /* PreviewAnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewAnswersViewController.h; sourceTree = "<group>"; };
 		A015B7C8159328840031F276 /* PreviewAnswersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewAnswersViewController.m; sourceTree = "<group>"; };
 		A015B7C9159328840031F276 /* PreviewAnswersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewAnswersViewController.xib; sourceTree = "<group>"; };
 		A015B7CD15932D5A0031F276 /* UserChoices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserChoices.h; sourceTree = "<group>"; };
 		A015B7CE15932D5A0031F276 /* UserChoices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserChoices.m; sourceTree = "<group>"; };
-		3E8F402015933D5700AF287A /* TextChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextChoiceViewController.h; sourceTree = "<group>"; };
-		3E8F402115933D5700AF287A /* TextChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextChoiceViewController.m; sourceTree = "<group>"; };
-		3E8F402215933D5700AF287A /* TextChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextChoiceViewController.xib; sourceTree = "<group>"; };
-		3E8F402A1593503200AF287A /* MultipleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleChoiceViewController.h; sourceTree = "<group>"; };
-		3E8F402B1593503300AF287A /* MultipleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleChoiceViewController.m; sourceTree = "<group>"; };
-		3E8F402C1593503300AF287A /* MultipleChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleChoiceViewController.xib; sourceTree = "<group>"; };
 		A0240B281591CF1D002F637B /* MainQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainQuestionsViewController.h; sourceTree = "<group>"; };
 		A0240B291591CF1D002F637B /* MainQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainQuestionsViewController.m; sourceTree = "<group>"; };
 		A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainQuestionsViewController.xib; sourceTree = "<group>"; };
@@ -131,9 +131,9 @@
 				3E8F402015933D5700AF287A /* TextChoiceViewController.h */,
 				3E8F402115933D5700AF287A /* TextChoiceViewController.m */,
 				3E8F402215933D5700AF287A /* TextChoiceViewController.xib */,
-				3E8F402A1593503200AF287A /* MultipleChoiceViewController.h */,
-				3E8F402B1593503300AF287A /* MultipleChoiceViewController.m */,
-				3E8F402C1593503300AF287A /* MultipleChoiceViewController.xib */,
+				3E37789D1593675A003ED66F /* MultipleChoiceViewController.h */,
+				3E37789E1593675A003ED66F /* MultipleChoiceViewController.m */,
+				3E37789F1593675A003ED66F /* MultipleChoiceViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -254,7 +254,7 @@
 				A0240B701592329F002F637B /* SingleChoiceViewController.xib in Resources */,
 				A015B7CB159328840031F276 /* PreviewAnswersViewController.xib in Resources */,
 				3E8F402415933D5700AF287A /* TextChoiceViewController.xib in Resources */,
-				3E8F402E1593503300AF287A /* MultipleChoiceViewController.xib in Resources */,
+				3E3778A11593675A003ED66F /* MultipleChoiceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +277,7 @@
 				A015B7CA159328840031F276 /* PreviewAnswersViewController.m in Sources */,
 				A015B7CF15932D5A0031F276 /* UserChoices.m in Sources */,
 				3E8F402315933D5700AF287A /* TextChoiceViewController.m in Sources */,
-				3E8F402D1593503300AF287A /* MultipleChoiceViewController.m in Sources */,
+				3E3778A01593675A003ED66F /* MultipleChoiceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

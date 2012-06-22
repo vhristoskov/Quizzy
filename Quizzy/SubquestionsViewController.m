@@ -10,7 +10,9 @@
 #import "Question.h"
 #import "CustomLabel.h"
 #import "DataManager.h"
+#import "MultipleChoiceViewController.h"
 #import "SingleChoiceViewController.h"
+
 
 @interface SubquestionsViewController ()
 
@@ -96,10 +98,14 @@
             break;
         }  
         case 1:
-            // load multiple choice type question view controller
-            // set its answers and question properties
-            // push it to the navigation controller
+        {
+            MultipleChoiceViewController *multipleChoiceVC = [[MultipleChoiceViewController alloc]initWithNibName:@"MultipleChoiceViewController" bundle:nil];
+            multipleChoiceVC.question = question;
+            multipleChoiceVC.delegate = self;
+            UINavigationController *multipleChoiceNC = [[UINavigationController alloc] initWithRootViewController:multipleChoiceVC];
+            [self presentModalViewController:multipleChoiceNC animated:YES];
             break;
+        }
         case 3:
             // load text choice type question view controller
             // set its answers and question properties

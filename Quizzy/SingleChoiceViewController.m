@@ -71,6 +71,9 @@
 //        self.answerChoice = [self.answers objectAtIndex:answerIndex];
 //    }
 
+    self.answerChoice = [self.answers objectAtIndex:0];
+    [self.singleChoicePickerView selectRow:0 inComponent:0 animated:NO];
+    
     self.answers = [[DataManager defaultDataManager] fetchAnswersForQuestion:self.question];
     self.questionLabel.text = self.question.questionText;
 
