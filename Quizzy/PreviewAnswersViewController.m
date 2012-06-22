@@ -71,7 +71,7 @@
     UserResponse *userResponse = [self.tableData objectAtIndex:[indexPath row]];
     NSString *cellText = userResponse.response;
     NSLog(@"%i - %@", userResponse.questionLevel, cellText);
-    [cell.textLabel setNumberOfLines:4];
+    [cell.textLabel setNumberOfLines:5];
     [cell.textLabel setFont:[UIFont systemFontOfSize:15]];
     [cell.textLabel setText:cellText];
     
