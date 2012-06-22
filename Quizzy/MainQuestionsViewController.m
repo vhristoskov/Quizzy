@@ -139,7 +139,7 @@
     switch (self.selectedQuestion.questionType) {
         case 0:
         {    
-            SingleChoiceViewController *singleChoiceVC = [[SingleChoiceViewController alloc]initWithNibName:@"SingleChoiceViewController" bundle:nil];
+            SingleChoiceViewController *singleChoiceVC = [[SingleChoiceViewController alloc]initWithNibName:@"ChoiceTableViewController" bundle:nil];
             singleChoiceVC.question = self.selectedQuestion;
             singleChoiceVC.delegate = self;
             UINavigationController *singleChoiceNC = [[UINavigationController alloc] initWithRootViewController:singleChoiceVC];
@@ -149,7 +149,7 @@
         }        
         case 1:
         {
-            MultipleChoiceViewController *multipleChoiceVC = [[MultipleChoiceViewController alloc]initWithNibName:@"MultipleChoiceViewController" bundle:nil];
+            MultipleChoiceViewController *multipleChoiceVC = [[MultipleChoiceViewController alloc]initWithNibName:@"ChoiceTableChoiceViewController" bundle:nil];
             multipleChoiceVC.question = self.selectedQuestion;
             multipleChoiceVC.delegate = self;
             UINavigationController *multipleChoiceNC = [[UINavigationController alloc] initWithRootViewController:multipleChoiceVC];
