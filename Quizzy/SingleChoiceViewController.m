@@ -120,10 +120,7 @@
 - (IBAction)submitSingleChoice:(id)sender {
     
     NSArray *subquestions = [[DataManager defaultDataManager] fetchSubquestionsOfQuestion:self.question forAnswer:self.answerChoice];
-    for (Question *q in subquestions) {
-        NSLog(@"%@", q.questionText);
-    }
-    
+       
     if ([self.delegate respondsToSelector:@selector(didSubmitAnswer:withSubquestions:forQuestion:)]) {
         [self.delegate didSubmitAnswer:self.answerChoice withSubquestions:subquestions forQuestion:self.question];
     }
