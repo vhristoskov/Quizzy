@@ -7,6 +7,7 @@
 //
 
 #import "PreviewAnswersViewController.h"
+#import "UserResponse.h"
 
 @interface PreviewAnswersViewController ()
 
@@ -60,7 +61,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     
-    NSString *cellText = [self.tableData objectAtIndex:[indexPath row]];
+    UserResponse *userResponse = [self.tableData objectAtIndex:[indexPath row]];
+    NSString *cellText = userResponse.response;
+    NSLog(@"%i - %@", userResponse.questionLevel, cellText);
     [cell.textLabel setNumberOfLines:4];
     [cell.textLabel setFont:[UIFont systemFontOfSize:15]];
     [cell.textLabel setText:cellText];

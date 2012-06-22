@@ -8,13 +8,14 @@
 
 #import "UserChoices.h"
 #import "DataManager.h"
+#import "UserResponse.h"
 
 @interface UserChoices ()
 
 @property (nonatomic, strong) NSDictionary *sortedQuestionAnswers;
 @property (nonatomic, strong) NSDictionary *questionsWithIds;
 
-- (NSDictionary *)sortQuestionAnswers;
+- (NSDictionary *)categorizeQuestions;
 - (NSString *)prepareAnswerForSingleChoiceQuestion:(Question *)question;
 - (NSString *)prepareAnswerForMultipleChoiceQuestion:(Question *)question;
 - (void)removeSubquestionsforQuestion:(NSNumber *)questionId withNewAnswer:(Answer *)newAnswer;
@@ -58,16 +59,21 @@
 }
 
 - (NSString *)prepareEmailBody {
-    self.sortedQuestionAnswers = [self sortQuestionAnswers];
+    self.sortedQuestionAnswers = [self categorizeQuestions];
     
     NSMutableString *emailBody = [[NSMutableString alloc] init];
     NSArray *sections = [self.sortedQuestionAnswers allKeys];
     for (NSString *section in sections) {
-        NSMutableArray *sectionQuestionAnswers = [self.sortedQuestionAnswers valueForKey:section];
-        if ([sectionQuestionAnswers count] > 0) {
+        NSMutableArray *sectionUserResponses = [self.sortedQuestionAnswers valueForKey:section];
+        
+        NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"questionLevel" ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sd];
+        NSArray *sortedSectionUserResponses = [sectionUserResponses sortedArrayUsingDescriptors:sortDescriptors];
+        
+        if ([sectionUserResponses count] > 0) {
             [emailBody appendString:[NSString stringWithFormat:@"%@\n", section]];
-            for (NSString *questionAnswer in sectionQuestionAnswers) {
-                [emailBody appendString:[NSString stringWithFormat:@"%@\n", questionAnswer]];
+            for (UserResponse *userResponse in sortedSectionUserResponses) {
+                [emailBody appendString:[NSString stringWithFormat:@"%@\n", userResponse.response]];
             }
             [emailBody appendString:@"\n"];
         }
@@ -92,15 +98,6 @@
     return answer;
 }
 
-- (NSArray *)fetchAllAnswersFromQuestion:(NSNumber *)questionId {
-    self.sortedQuestionAnswers = [self sortQuestionAnswers];
-
-    Question *question = [self.questionsWithIds objectForKey:questionId];
-    NSArray *sectionQuestionAnswers = [self.sortedQuestionAnswers objectForKey:question.questionSection];
-    
-    return sectionQuestionAnswers;
-}
-
 - (NSArray *)fetchAnswersToMultipleChoiceQuestion:(NSNumber *)questionId {
     if (![self questionIsAnswered:questionId]) {
         return nil;
@@ -109,9 +106,22 @@
     return answers;
 }
 
+- (NSArray *)fetchAllAnswersFromQuestion:(NSNumber *)questionId {
+    self.sortedQuestionAnswers = [self categorizeQuestions];
+    
+    Question *question = [self.questionsWithIds objectForKey:questionId];
+    NSArray *sectionUserResponses = [self.sortedQuestionAnswers objectForKey:question.questionSection];
+    
+    NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"questionLevel" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sd];
+    NSArray *sortedSectionUserResposes = [sectionUserResponses sortedArrayUsingDescriptors:sortDescriptors];
+    
+    return sortedSectionUserResposes;
+}
+
 # pragma mark - private methods
 
-- (NSDictionary *)sortQuestionAnswers {
+- (NSDictionary *)categorizeQuestions {
     NSMutableDictionary *categorizedQuestionAnswers = [[NSMutableDictionary alloc] init];
     
     NSArray *sections = [[DataManager defaultDataManager] fetchSections];
@@ -129,24 +139,37 @@
 
     for (Question *question in answeredQuestions) {
         NSString *questionAnswer;
+        UserResponse *userResponse = [[UserResponse alloc] init];
         
         switch (question.questionType) {
             case 0:
+            {
                 questionAnswer = [self prepareAnswerForSingleChoiceQuestion:question];
+                userResponse.questionLevel = question.questionLevel;
+                userResponse.response = questionAnswer;
                 break;
+            }
             case 1:
+            {
                 questionAnswer = [self prepareAnswerForMultipleChoiceQuestion:question];
+                userResponse.questionLevel = question.questionLevel;
+                userResponse.response = questionAnswer;
                 break;
+            }
             case 2:
+            {
                 questionAnswer = [self prepareAnswerForSingleChoiceQuestion:question];
+                userResponse.questionLevel = question.questionLevel;
+                userResponse.response = questionAnswer;
                 break;
+            }
             default:
                 NSLog(@"Error - Unrecognized question type");
                 break;
         }
         
         NSMutableArray *sectionQuestionAnswers = [categorizedQuestionAnswers valueForKey:question.questionSection];
-        [sectionQuestionAnswers addObject:questionAnswer];
+        [sectionQuestionAnswers addObject:userResponse];
     }
     
     return categorizedQuestionAnswers;

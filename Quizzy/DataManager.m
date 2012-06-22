@@ -16,14 +16,16 @@ static DataManager *defaultDataManager = nil;
     sqlite3 *database;
 }
 
+@property (nonatomic) NSInteger currentLevel;
+
 - (void)initDB;
 - (void)closeDB;
 
 @end
 
 @implementation DataManager
-
 @synthesize userChoices;
+@synthesize currentLevel;
 
 + (DataManager *)defaultDataManager {
     if (!defaultDataManager) {
