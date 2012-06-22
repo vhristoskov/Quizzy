@@ -85,6 +85,11 @@
 
 #pragma mark - Table view delegate
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView cellForRowAtIndexPath:[tableView indexPathForSelectedRow]].accessoryType = UITableViewCellAccessoryNone;
+    return indexPath;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.chosenAnswer = [self.answers objectAtIndex:indexPath.row];

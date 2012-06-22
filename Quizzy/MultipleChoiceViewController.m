@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     self.chosenAnswers = [NSMutableArray array];
+    self.tableView.allowsMultipleSelection = YES;
            
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
