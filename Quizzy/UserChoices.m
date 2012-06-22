@@ -177,13 +177,13 @@
 
 - (NSString *)prepareAnswerForSingleChoiceQuestion:(Question *)question {
     Answer *answer = [self.questionAndAnswers objectForKey:[NSNumber numberWithInt:question.questionId]];
-    NSString *result = [NSString stringWithFormat:@"Question: %@\nAnswer: %@\n", question.questionText, answer.answerText];
+    NSString *result = [NSString stringWithFormat:@"%@\nYou answered: %@\n", question.questionText, answer.answerText];
     return result;
 }
 
 - (NSString *)prepareAnswerForMultipleChoiceQuestion:(Question *)question {
     NSArray *answers = [self.questionAndAnswers objectForKey:[NSNumber numberWithInt:question.questionId]];
-    NSMutableString *result = [NSMutableString stringWithFormat:@"Question: %@\nAnswers:\n", question.questionText];
+    NSMutableString *result = [NSMutableString stringWithFormat:@"%@\nYou replied:\n", question.questionText];
     for (Answer *a in answers) {
         [result appendString:[NSString stringWithFormat:@"%@\n", a.answerText]];
     }
