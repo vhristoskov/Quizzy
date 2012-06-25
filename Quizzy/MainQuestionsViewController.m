@@ -109,7 +109,7 @@
     
     if ([[[DataManager defaultDataManager] userChoices] questionIsAnswered:[NSNumber numberWithInt:question.questionId]]) {
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"What next?" message:@"Preview or edit?" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Preview", @"Edit", nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"What next?" message:@"Preview or edit?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Preview", @"Edit", nil];
         [alertView show];
     } else {
         [self openAnswerViewController];
@@ -119,7 +119,7 @@
 # pragma mark - UIAlertViewDelegate methods
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
+    if (buttonIndex == 1) {
         PreviewAnswersViewController *previewAnswersViewController = [[PreviewAnswersViewController alloc] 
                                                                       initWithNibName:@"PreviewAnswersViewController" bundle:nil];
         NSArray *allQuestionsAnswersForSection = [[[DataManager defaultDataManager] userChoices] 
@@ -128,7 +128,7 @@
         
         UINavigationController *answerPreviewNavController = [[UINavigationController alloc] initWithRootViewController:previewAnswersViewController];
         [self presentViewController:answerPreviewNavController animated:YES completion:NULL];
-    } else {
+    } else if (buttonIndex == 2) {
         [self openAnswerViewController];
     }
 }
