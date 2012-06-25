@@ -14,5 +14,7 @@
 @synthesize questionLevel;
 @synthesize question;
 @synthesize answer;
+@synthesize parentId;
+@synthesize questionId;
 
 @end

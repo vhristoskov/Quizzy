@@ -14,5 +14,7 @@
 @property (nonatomic, strong) NSString *question;
 @property (nonatomic, strong) NSString *answer;
 @property (nonatomic) NSInteger questionLevel;
+@property (nonatomic) NSInteger parentId;
+@property (nonatomic) NSInteger questionId;
 
 @end
