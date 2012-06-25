@@ -226,9 +226,14 @@
                 userResponse.question = question.questionText;
                 userResponse.parentId = question.questionParentId;
                 NSMutableString *combinedAnswer = [[NSMutableString alloc] init];
-                for (Answer *a in answers) {
-                    [combinedAnswer appendString:[NSString stringWithFormat:@"%@, ", a.answerText]];
+                
+                for (int i =0; i<answers.count-1; ++i) {
+                    [combinedAnswer appendString:[NSString stringWithFormat:@"%@, ", ((Answer *)[answers objectAtIndex:i]).answerText]];
                 }
+                
+                [combinedAnswer appendString:[NSString stringWithFormat:@"%@", ((Answer *)[answers lastObject]).answerText]];
+                
+                
                 userResponse.answer = combinedAnswer;
                 userResponse.questionId = question.questionId;                
                 break;

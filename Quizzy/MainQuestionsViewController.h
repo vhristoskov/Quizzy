@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "AnswerDelegate.h"
-#import "QuestionTableViewController.h"
 
 @interface MainQuestionsViewController : UITableViewController <AnswerDelegate, UIAlertViewDelegate>
 

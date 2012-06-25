@@ -31,7 +31,7 @@
     UIBarButtonItem *goBackBtn = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
     [self.navigationItem setLeftBarButtonItem:goBackBtn];
 
-    self.tableView.backgroundColor = [UIColor whiteColor];
+//    self.tableView.backgroundColor = [UIColor g];
 }
 
 - (void)viewDidUnload {
@@ -119,9 +119,9 @@
         
         answerTextSize =[answerText sizeWithFont:[UIFont systemFontOfSize:14.0] constrainedToSize:CGSizeMake(240.0f, 480.0f) lineBreakMode:UILineBreakModeWordWrap];
         
-        balloonView.frame = CGRectMake(320.0f - (answerTextSize.width + 28.0f), 2.0f, answerTextSize.width + 28.0f, answerTextSize.height + 15.0f);
+        balloonView.frame = CGRectMake(320.0f - (answerTextSize.width + 28.0f), 4.0f, answerTextSize.width + 28.0f, answerTextSize.height + 15.0f);
         balloon = [[UIImage imageNamed:@"green.png"] stretchableImageWithLeftCapWidth:24 topCapHeight:15];
-        label.frame = CGRectMake(307.0f - (answerTextSize.width + 5.0f), 8.0f, answerTextSize.width + 5.0f, answerTextSize.height);
+        label.frame = CGRectMake(307.0f - (answerTextSize.width + 5.0f), 10.0f, answerTextSize.width + 5.0f, answerTextSize.height);
         label.text = answerText;
     }
 
