@@ -33,6 +33,7 @@
     
     UIBarButtonItem *sendMailBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(sendMail)];
     [self.navigationItem setRightBarButtonItem:sendMailBtn];
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
 - (void)viewDidUnload {
@@ -112,7 +113,7 @@
         questionTextSize = [questionText sizeWithFont:[UIFont systemFontOfSize:14.0] constrainedToSize:CGSizeMake(240.0f, 480.0f) lineBreakMode:UILineBreakModeWordWrap];
         
         balloonView.frame = balloonView.frame = CGRectMake(0.0, 4.0, questionTextSize.width + 28, questionTextSize.height + 15);
-        balloon = [[UIImage imageNamed:@"grey_2.png"] stretchableImageWithLeftCapWidth:24 topCapHeight:15];
+        balloon = [[UIImage imageNamed:@"aqua_2.png"] stretchableImageWithLeftCapWidth:24 topCapHeight:15];
         label.frame = CGRectMake(16, 10, questionTextSize.width + 5, questionTextSize.height);
         label.text = questionText;
     }
