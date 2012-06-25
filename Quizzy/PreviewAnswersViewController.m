@@ -82,6 +82,8 @@
         [message addSubview:label];
         [cell.contentView addSubview:message];
         
+        
+        
     }
     else
     {
@@ -132,7 +134,36 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UserResponse *userResponse;
+    NSString *questionText;
+    NSString *answerText;
+    
+    CGSize questionTextSize; 
+    CGSize answerTextSize; 
+    
+
+    if(indexPath.row % 2 == 0)
+    {
+        userResponse = [self.tableData objectAtIndex:[indexPath row]/2];
+        questionText = userResponse.question;
+        
+        questionTextSize = [questionText sizeWithFont:[UIFont systemFontOfSize:14.0] constrainedToSize:CGSizeMake(240.0f, 480.0f) lineBreakMode:UILineBreakModeWordWrap];
+        
+        return questionTextSize.height + 15;
+    }
+    else
+    {
+        
+        userResponse = [self.tableData objectAtIndex:[indexPath row]/2];
+        answerText = userResponse.answer;
+        
+        answerTextSize =[answerText sizeWithFont:[UIFont systemFontOfSize:14.0] constrainedToSize:CGSizeMake(240.0f, 480.0f) lineBreakMode:UILineBreakModeWordWrap];
+        
+        return answerTextSize.height + 15;
+    }
+
 }
 
 @end
