@@ -21,12 +21,15 @@ static DataManager *defaultDataManager = nil;
 - (void)initDB;
 - (void)closeDB;
 
+- (void)fetchQuestionParents;
+- (NSInteger)getQuestionLevel:(NSInteger)questionId;
+
 @end
 
 @implementation DataManager
 @synthesize userChoices;
 @synthesize currentLevel;
-@synthesize questions;
+@synthesize questionIdsToQuestions;
 
 + (DataManager *)defaultDataManager {
     if (!defaultDataManager) {
@@ -265,6 +268,58 @@ static DataManager *defaultDataManager = nil;
 
 - (NSString *)fetchEmailBody {
     return [self.userChoices prepareEmailBody];
+}
+
+- (void)fetchQuestionParents {
+    const char *sqlRequest = "SELECT q.QuestionId, qp.QuestionId from Question q join QuestionParent qp on q.QuestionParentId = qp.ParentId";
+    
+    sqlite3_stmt *statement;
+    int sqlResult = sqlite3_prepare_v2(database, sqlRequest, -1, &statement, NULL);
+    
+    if (sqlResult == SQLITE_OK) {
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            
+            NSInteger questionId = sqlite3_column_int(statement, 0);
+            NSInteger parentId = sqlite3_column_int(statement, 1);
+            
+            Question *q = [self.questionIdsToQuestions objectForKey:[NSNumber numberWithInt:questionId]];
+            q.questionParentId = parentId;
+        }
+        sqlite3_finalize(statement);
+    } else {
+        NSLog(@"Problem with the database:");
+        NSLog(@"%d", sqlResult);
+    }
+}
+
+- (NSDictionary *)createQuestionTree {
+    self.questionIdsToQuestions = [self fetchAllQuestions];
+    [self fetchQuestionParents];
+    
+    NSArray *allQuestions = [self.questionIdsToQuestions allValues];
+    for (Question *q in allQuestions) {
+        if (q.questionParentId == 0) {
+            q.questionLevel = 0;
+        } else {
+            q.questionLevel = [self getQuestionLevel:q.questionParentId] + 1;
+        }
+    }
+    
+//    for (Question *q in allQuestions) {
+//        NSLog(@"QuestionId: %i, ParentId: %i, Level: %i", q.questionId, q.questionParentId, q.questionLevel);
+//    }
+    
+    return self.questionIdsToQuestions;
+}
+
+- (NSInteger)getQuestionLevel:(NSInteger)questionId {
+    Question *parent = [self.questionIdsToQuestions objectForKey:[NSNumber numberWithInt:questionId]];
+    if (parent.questionParentId == 0) {
+        return 0;
+    }
+    else{
+        return [self getQuestionLevel:parent.questionParentId] + 1;
+    }
 }
 
 @end

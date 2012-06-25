@@ -14,7 +14,7 @@
 @interface DataManager : NSObject
 
 @property (nonatomic, strong) UserChoices *userChoices;
-@property (nonatomic, strong) NSMutableArray *questions;
+@property (nonatomic, strong) NSDictionary *questionIdsToQuestions;
 
 + (DataManager *)defaultDataManager;
 
@@ -27,5 +27,6 @@
 - (NSArray *)fetchSections;
 - (void)addAnswers:(NSObject *)answerObject forQuestion:(NSNumber *)questionId;
 - (NSString *)fetchEmailBody;
+- (NSDictionary *)createQuestionTree;
 
 @end

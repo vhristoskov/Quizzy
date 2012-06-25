@@ -12,5 +12,7 @@
 
 @synthesize response;
 @synthesize questionLevel;
+@synthesize question;
+@synthesize answer;
 
 @end

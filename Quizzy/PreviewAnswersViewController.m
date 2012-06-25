@@ -65,15 +65,18 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
     }
     
     UserResponse *userResponse = [self.tableData objectAtIndex:[indexPath row]];
-    NSString *cellText = userResponse.response;
-    NSLog(@"%i - %@", userResponse.questionLevel, cellText);
+//    NSString *cellText = userResponse.response;
+    NSString *qText = userResponse.question;
+    NSString *aText = userResponse.answer;
+    
     [cell.textLabel setNumberOfLines:5];
     [cell.textLabel setFont:[UIFont systemFontOfSize:15]];
-    [cell.textLabel setText:cellText];
+    [cell.textLabel setText:qText];
+    [cell.detailTextLabel setText:aText];
     
     return cell;
 }

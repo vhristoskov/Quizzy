@@ -11,6 +11,8 @@
 @interface UserResponse : NSObject
 
 @property (nonatomic, strong) NSString *response;
+@property (nonatomic, strong) NSString *question;
+@property (nonatomic, strong) NSString *answer;
 @property (nonatomic) NSInteger questionLevel;
 
 @end

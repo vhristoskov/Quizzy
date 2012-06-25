@@ -41,6 +41,7 @@
     [self.navigationItem setRightBarButtonItem:sendEmailBtn];
     
     NSArray *mainQuestions = [[DataManager defaultDataManager] fetchMainQuestions];
+//    [[DataManager defaultDataManager] createQuestionTree];
     self.sections = [[DataManager defaultDataManager] categorizeQuestions:mainQuestions];
 }
 

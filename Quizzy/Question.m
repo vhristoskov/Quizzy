@@ -15,7 +15,6 @@
 @synthesize questionType;
 @synthesize questionSection;
 @synthesize questionLevel;
-@synthesize answers;
-@synthesize subquestions;
+@synthesize questionParentId;
 
 @end

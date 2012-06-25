@@ -31,7 +31,7 @@
     self = [super init];
     if (self) {
         questionAndAnswers = [[NSMutableDictionary alloc] init];
-        questionsWithIds = [[DataManager defaultDataManager] fetchAllQuestions];
+        questionsWithIds = [[DataManager defaultDataManager] createQuestionTree];
     }
     return self;
 }
@@ -143,15 +143,25 @@
             case 0:
             {
                 questionAnswer = [self prepareAnswerForSingleChoiceQuestion:question];
+                Answer *answer = [self.questionAndAnswers objectForKey:[NSNumber numberWithInt:question.questionId]];
                 userResponse.questionLevel = question.questionLevel;
                 userResponse.response = questionAnswer;
+                userResponse.question = question.questionText;
+                userResponse.answer = answer.answerText;
                 break;
             }
             case 1:
             {
                 questionAnswer = [self prepareAnswerForMultipleChoiceQuestion:question];
+                NSArray *answers = [self.questionAndAnswers objectForKey:[NSNumber numberWithInt:question.questionId]];
                 userResponse.questionLevel = question.questionLevel;
                 userResponse.response = questionAnswer;
+                userResponse.question = question.questionText;
+                NSMutableString *combinedAnswer = [[NSMutableString alloc] init];
+                for (Answer *a in answers) {
+                    [combinedAnswer appendString:[NSString stringWithFormat:@"%@ ", a.answerText]];
+                }
+                userResponse.answer = combinedAnswer;
                 break;
             }
             case 2:
@@ -159,6 +169,9 @@
                 questionAnswer = [self prepareAnswerForSingleChoiceQuestion:question];
                 userResponse.questionLevel = question.questionLevel;
                 userResponse.response = questionAnswer;
+                userResponse.question = question.questionText;
+                Answer *answer = [self.questionAndAnswers objectForKey:[NSNumber numberWithInt:question.questionId]];
+                userResponse.answer = answer.answerText;
                 break;
             }
             default:
