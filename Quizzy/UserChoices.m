@@ -227,7 +227,7 @@
                 userResponse.parentId = question.questionParentId;
                 NSMutableString *combinedAnswer = [[NSMutableString alloc] init];
                 for (Answer *a in answers) {
-                    [combinedAnswer appendString:[NSString stringWithFormat:@"%@ ", a.answerText]];
+                    [combinedAnswer appendString:[NSString stringWithFormat:@"%@, ", a.answerText]];
                 }
                 userResponse.answer = combinedAnswer;
                 userResponse.questionId = question.questionId;                
