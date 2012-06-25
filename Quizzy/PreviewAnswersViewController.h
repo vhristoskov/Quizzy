@@ -11,5 +11,6 @@
 @interface PreviewAnswersViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *tableData;
+@property (nonatomic, strong) NSString *section;
 
 @end

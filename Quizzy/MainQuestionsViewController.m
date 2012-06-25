@@ -128,8 +128,12 @@
         NSArray *allQuestionsAnswersForSection = [[[DataManager defaultDataManager] userChoices] 
                                                   fetchAllAnswersFromQuestion:[NSNumber numberWithInt:self.selectedQuestion.questionId]];
         previewAnswersViewController.tableData = allQuestionsAnswersForSection;
+        previewAnswersViewController.section = self.selectedQuestion.questionSection;
         
         UINavigationController *answerPreviewNavController = [[UINavigationController alloc] initWithRootViewController:previewAnswersViewController];
+        
+        answerPreviewNavController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        
         [self presentViewController:answerPreviewNavController animated:YES completion:NULL];
     } else if (buttonIndex == 2) {
         [self openAnswerViewController];

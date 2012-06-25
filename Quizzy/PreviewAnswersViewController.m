@@ -16,6 +16,7 @@
 
 @implementation PreviewAnswersViewController
 @synthesize tableData;
+@synthesize section;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,12 +27,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationItem setTitle:@"Answer Preview"];
+    [self.navigationItem setTitle:self.section];
     
     UIBarButtonItem *goBackBtn = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
     [self.navigationItem setLeftBarButtonItem:goBackBtn];
-
-//    self.tableView.backgroundColor = [UIColor g];
 }
 
 - (void)viewDidUnload {
@@ -80,10 +79,7 @@
         message.tag = 0;
         [message addSubview:balloonView];
         [message addSubview:label];
-        [cell.contentView addSubview:message];
-        
-        
-        
+        [cell.contentView addSubview:message];  
     }
     else
     {

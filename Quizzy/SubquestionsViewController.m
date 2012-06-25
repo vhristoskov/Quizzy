@@ -126,7 +126,7 @@
 # pragma mark - private methods
 
 - (void)displayPreviousQuestion {
-    CGRect tableHeaderViewFrame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, 60);
+    CGRect tableHeaderViewFrame = CGRectMake(self.tableView.frame.origin.x + 5, self.tableView.frame.origin.y, self.tableView.frame.size.width - 5, 60);
     CustomLabel *previousQuestionLabel = [[CustomLabel alloc] initWithFrame:tableHeaderViewFrame];
     [previousQuestionLabel setText:self.previousQuestion];
     [previousQuestionLabel setFont:[UIFont boldSystemFontOfSize:20]];
