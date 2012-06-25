@@ -64,11 +64,14 @@
     for (NSString *section in sections) {
         NSMutableArray *sectionUserResponses = [self.sortedQuestionAnswers valueForKey:section];
         
-        NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"questionLevel" ascending:YES];
-        NSArray *sortDescriptors = [NSArray arrayWithObject:sd];
-        NSArray *sortedSectionUserResponses = [sectionUserResponses sortedArrayUsingDescriptors:sortDescriptors];
-        
         if ([sectionUserResponses count] > 0) {
+            NSArray *roots = [self getRootsOfSection:section];
+            NSMutableArray *sortedSectionUserResponses = [[NSMutableArray alloc] init];
+            for (UserResponse *root in roots) {
+                NSArray *treeResponses = [self traverseTreeWithRoot:root];
+                [sortedSectionUserResponses addObjectsFromArray:treeResponses];
+            }
+
             [emailBody appendString:[NSString stringWithFormat:@"%@\n", section]];
             for (UserResponse *userResponse in sortedSectionUserResponses) {
                 [emailBody appendString:[NSString stringWithFormat:@"%@\n", userResponse.response]];
@@ -78,6 +81,62 @@
     }
     
     return emailBody;
+}
+
+- (NSArray *)traverseTreeWithRoot:(UserResponse *)root {
+    NSMutableArray *orderedQuestions = [[NSMutableArray alloc] init];
+    
+    NSMutableArray *stack = [[NSMutableArray alloc] init];
+    [stack addObject:root];
+    
+    NSMutableSet *visited = [[NSMutableSet alloc] init];
+    
+    while ([stack count] > 0) {
+        UserResponse *u = [stack lastObject];
+        [stack removeLastObject];
+        
+        [orderedQuestions addObject:u];
+        
+        NSNumber *questionId = [NSNumber numberWithInt:u.questionId];
+        if (![visited containsObject:questionId]) {
+            [visited addObject:questionId];
+            
+            NSArray *children = [self getChildrenOfQuestionWithId:u.questionId];
+            for (UserResponse *child in children) {
+                if (![visited containsObject:[NSNumber numberWithInt:child.questionId]]) {
+                    [stack addObject:child];
+                }
+            }
+        }
+    }
+    
+    return orderedQuestions;
+}
+
+- (NSArray *)getRootsOfSection:(NSString *)section {
+    NSMutableArray *sectionUserResponses = [self.sortedQuestionAnswers valueForKey:section];
+    
+    NSMutableArray *roots = [[NSMutableArray alloc] init];
+    for (UserResponse *u in sectionUserResponses) {
+        if (u.questionLevel == 0) {
+            [roots addObject:u];
+        }
+    }
+    return roots;
+}
+
+- (NSArray *)getChildrenOfQuestionWithId:(NSInteger)questionId {
+    Question *q = [self.questionsWithIds objectForKey:[NSNumber numberWithInt:questionId]];
+    NSArray *sectionUserResponses = [self.sortedQuestionAnswers valueForKey:q.questionSection];
+    
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    for (UserResponse *u in sectionUserResponses) {
+        if (u.parentId == q.questionId) {
+            [result addObject:u];
+        }
+    }
+    
+    return result;
 }
 
 - (BOOL)questionIsAnswered:(NSNumber *)questionId {
@@ -108,13 +167,19 @@
     self.sortedQuestionAnswers = [self categorizeQuestions];
     
     Question *question = [self.questionsWithIds objectForKey:questionId];
-    NSArray *sectionUserResponses = [self.sortedQuestionAnswers objectForKey:question.questionSection];
+
+    NSMutableArray *sectionUserResponses = [self.sortedQuestionAnswers valueForKey:question.questionSection];
     
-    NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"questionLevel" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sd];
-    NSArray *sortedSectionUserResposes = [sectionUserResponses sortedArrayUsingDescriptors:sortDescriptors];
+    NSMutableArray *sortedSectionUserResponses = [[NSMutableArray alloc] init];
+    if ([sectionUserResponses count] > 0) {
+        NSArray *roots = [self getRootsOfSection:question.questionSection];
+        for (UserResponse *root in roots) {
+            NSArray *treeResponses = [self traverseTreeWithRoot:root];
+            [sortedSectionUserResponses addObjectsFromArray:treeResponses];
+        }
+    }
     
-    return sortedSectionUserResposes;
+    return sortedSectionUserResponses;
 }
 
 # pragma mark - private methods
@@ -147,7 +212,9 @@
                 userResponse.questionLevel = question.questionLevel;
                 userResponse.response = questionAnswer;
                 userResponse.question = question.questionText;
+                userResponse.parentId = question.questionParentId;
                 userResponse.answer = answer.answerText;
+                userResponse.questionId = question.questionId;
                 break;
             }
             case 1:
@@ -157,11 +224,13 @@
                 userResponse.questionLevel = question.questionLevel;
                 userResponse.response = questionAnswer;
                 userResponse.question = question.questionText;
+                userResponse.parentId = question.questionParentId;
                 NSMutableString *combinedAnswer = [[NSMutableString alloc] init];
                 for (Answer *a in answers) {
                     [combinedAnswer appendString:[NSString stringWithFormat:@"%@ ", a.answerText]];
                 }
                 userResponse.answer = combinedAnswer;
+                userResponse.questionId = question.questionId;                
                 break;
             }
             case 2:
@@ -170,8 +239,10 @@
                 userResponse.questionLevel = question.questionLevel;
                 userResponse.response = questionAnswer;
                 userResponse.question = question.questionText;
+                userResponse.parentId = question.questionParentId;
                 Answer *answer = [self.questionAndAnswers objectForKey:[NSNumber numberWithInt:question.questionId]];
                 userResponse.answer = answer.answerText;
+                userResponse.questionId = question.questionId;                
                 break;
             }
             default:
