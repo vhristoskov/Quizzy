@@ -18,6 +18,7 @@
 @interface MainQuestionsViewController () <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) Question *selectedQuestion;
+@property (nonatomic, strong) NSIndexPath *selectedIndex;
 
 - (void)openAnswerViewController;
 
@@ -26,6 +27,7 @@
 @implementation MainQuestionsViewController
 @synthesize sections;
 @synthesize selectedQuestion;
+@synthesize selectedIndex;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -106,6 +108,7 @@
     Question *question = [sectionQuestions objectAtIndex:[indexPath row]];
     
     self.selectedQuestion = question;
+    self.selectedIndex = indexPath;
     
     if ([[[DataManager defaultDataManager] userChoices] questionIsAnswered:[NSNumber numberWithInt:question.questionId]]) {
         
@@ -130,6 +133,8 @@
         [self presentViewController:answerPreviewNavController animated:YES completion:NULL];
     } else if (buttonIndex == 2) {
         [self openAnswerViewController];
+    } else {
+        [self.tableView deselectRowAtIndexPath:self.selectedIndex animated:YES];
     }
 }
 
