@@ -1,3 +1,4 @@
+
 todo:
 
 Login Screen:
@@ -5,3 +6,10 @@ Login Screen:
 
 Weather TableView:
 - a user shouldn't have duplicating cities
+
+
+Main Question and Subquestion Table View Controllers:
+	add the answer as a subtitle
+
+- ?? keep answered questions and their answers in plist
+

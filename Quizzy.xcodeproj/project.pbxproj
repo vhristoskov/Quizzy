@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E3778A01593675A003ED66F /* MultipleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E37789E1593675A003ED66F /* MultipleChoiceViewController.m */; };
+		3E81EE7B15988C6F00EFA2E4 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E81EE7915988C6F00EFA2E4 /* green.png */; };
+		3E81EE7F1598A0AB00EFA2E4 /* aqua_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E81EE7E1598A0AB00EFA2E4 /* aqua_2.png */; };
+		3E8F402315933D5700AF287A /* TextChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F402115933D5700AF287A /* TextChoiceViewController.m */; };
+		3E8F402415933D5700AF287A /* TextChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8F402215933D5700AF287A /* TextChoiceViewController.xib */; };
+		3EF33BBC1594CBA300E8C5F9 /* ChoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF33BBA1594CBA200E8C5F9 /* ChoiceTableViewController.m */; };
+		3EF33BBD1594CBA300E8C5F9 /* ChoiceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF33BBB1594CBA300E8C5F9 /* ChoiceTableViewController.xib */; };
+		A01404A1159499CC00BFC2FC /* UserResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A01404A0159499CC00BFC2FC /* UserResponse.m */; };
+		A015B7CA159328840031F276 /* PreviewAnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A015B7C8159328840031F276 /* PreviewAnswersViewController.m */; };
+		A015B7CB159328840031F276 /* PreviewAnswersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A015B7C9159328840031F276 /* PreviewAnswersViewController.xib */; };
+		A015B7CF15932D5A0031F276 /* UserChoices.m in Sources */ = {isa = PBXBuildFile; fileRef = A015B7CE15932D5A0031F276 /* UserChoices.m */; };
+		A0240B2B1591CF1D002F637B /* MainQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B291591CF1D002F637B /* MainQuestionsViewController.m */; };
+		A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */; };
+		A0240B361591DD78002F637B /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B351591DD78002F637B /* Question.m */; };
+		A0240B391591DE5A002F637B /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B381591DE5A002F637B /* Answer.m */; };
+		A0240B3C1591DEAD002F637B /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B3B1591DEAD002F637B /* DataManager.m */; };
+		A0240B3E1591F017002F637B /* QuizData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A0240B3D1591F017002F637B /* QuizData.sqlite */; };
+		A0240B401591F05D002F637B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A0240B3F1591F05D002F637B /* libsqlite3.0.dylib */; };
+		A0240B4C159219B9002F637B /* SubquestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B4A159219B9002F637B /* SubquestionsViewController.m */; };
+		A0240B4D159219B9002F637B /* SubquestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0240B4B159219B9002F637B /* SubquestionsViewController.xib */; };
+		A0240B5415921E2C002F637B /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B5315921E2C002F637B /* CustomLabel.m */; };
+		A0240B60159225AE002F637B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0240B5F159225AE002F637B /* MessageUI.framework */; };
+		A0240B6215922B5B002F637B /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = A0240B6115922B5B002F637B /* Question.png */; };
+		A0240B6F1592329F002F637B /* SingleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0240B6D1592329F002F637B /* SingleChoiceViewController.m */; };
+		A0D2F1A01590D30900C24063 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F19F1590D30900C24063 /* UIKit.framework */; };
+		A0D2F1A21590D30900C24063 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A11590D30900C24063 /* Foundation.framework */; };
+		A0D2F1A41590D30900C24063 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D2F1A31590D30900C24063 /* CoreGraphics.framework */; };
+		A0D2F1AA1590D30900C24063 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0D2F1A81590D30900C24063 /* InfoPlist.strings */; };
+		A0D2F1AC1590D30900C24063 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2F1AB1590D30900C24063 /* main.m */; };
+		A0D2F1B01590D30900C24063 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2F1AF1590D30900C24063 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3E37789D1593675A003ED66F /* MultipleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleChoiceViewController.h; sourceTree = "<group>"; };
+		3E37789E1593675A003ED66F /* MultipleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleChoiceViewController.m; sourceTree = "<group>"; };
+		3E81EE7915988C6F00EFA2E4 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		3E81EE7E1598A0AB00EFA2E4 /* aqua_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aqua_2.png; sourceTree = "<group>"; };
+		3E8F402015933D5700AF287A /* TextChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextChoiceViewController.h; sourceTree = "<group>"; };
+		3E8F402115933D5700AF287A /* TextChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextChoiceViewController.m; sourceTree = "<group>"; };
+		3E8F402215933D5700AF287A /* TextChoiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextChoiceViewController.xib; sourceTree = "<group>"; };
+		3EF33BB91594CBA200E8C5F9 /* ChoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceTableViewController.h; sourceTree = "<group>"; };
+		3EF33BBA1594CBA200E8C5F9 /* ChoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceTableViewController.m; sourceTree = "<group>"; };
+		3EF33BBB1594CBA300E8C5F9 /* ChoiceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoiceTableViewController.xib; sourceTree = "<group>"; };
+		A014049F159499CC00BFC2FC /* UserResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserResponse.h; sourceTree = "<group>"; };
+		A01404A0159499CC00BFC2FC /* UserResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserResponse.m; sourceTree = "<group>"; };
+		A015B7C7159328840031F276 /* PreviewAnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewAnswersViewController.h; sourceTree = "<group>"; };
+		A015B7C8159328840031F276 /* PreviewAnswersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewAnswersViewController.m; sourceTree = "<group>"; };
+		A015B7C9159328840031F276 /* PreviewAnswersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewAnswersViewController.xib; sourceTree = "<group>"; };
+		A015B7CD15932D5A0031F276 /* UserChoices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserChoices.h; sourceTree = "<group>"; };
+		A015B7CE15932D5A0031F276 /* UserChoices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserChoices.m; sourceTree = "<group>"; };
+		A0240B281591CF1D002F637B /* MainQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainQuestionsViewController.h; sourceTree = "<group>"; };
+		A0240B291591CF1D002F637B /* MainQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainQuestionsViewController.m; sourceTree = "<group>"; };
+		A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainQuestionsViewController.xib; sourceTree = "<group>"; };
+		A0240B341591DD78002F637B /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		A0240B351591DD78002F637B /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		A0240B371591DE5A002F637B /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
+		A0240B381591DE5A002F637B /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
+		A0240B3A1591DEAD002F637B /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		A0240B3B1591DEAD002F637B /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		A0240B3D1591F017002F637B /* QuizData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuizData.sqlite; sourceTree = "<group>"; };
+		A0240B3F1591F05D002F637B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		A0240B49159219B9002F637B /* SubquestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubquestionsViewController.h; sourceTree = "<group>"; };
+		A0240B4A159219B9002F637B /* SubquestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubquestionsViewController.m; sourceTree = "<group>"; };
+		A0240B4B159219B9002F637B /* SubquestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubquestionsViewController.xib; sourceTree = "<group>"; };
+		A0240B5215921E2C002F637B /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
+		A0240B5315921E2C002F637B /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
+		A0240B5F159225AE002F637B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A0240B6115922B5B002F637B /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
+		A0240B6C1592329F002F637B /* SingleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChoiceViewController.h; sourceTree = "<group>"; };
+		A0240B6D1592329F002F637B /* SingleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChoiceViewController.m; sourceTree = "<group>"; };
+		A0240B71159233AE002F637B /* AnswerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnswerDelegate.h; sourceTree = "<group>"; };
+		A0D2F19B1590D30900C24063 /* Quizzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0D2F19F1590D30900C24063 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A0D2F1A11590D30900C24063 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A0D2F1A31590D30900C24063 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A0D2F1A71590D30900C24063 /* Quizzy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Quizzy-Info.plist"; sourceTree = "<group>"; };
+		A0D2F1A91590D30900C24063 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A0D2F1AB1590D30900C24063 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A0D2F1AD1590D30900C24063 /* Quizzy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quizzy-Prefix.pch"; sourceTree = "<group>"; };
+		A0D2F1AE1590D30900C24063 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A0D2F1AF1590D30900C24063 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0D2F1981590D30900C24063 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0240B60159225AE002F637B /* MessageUI.framework in Frameworks */,
+				A0240B401591F05D002F637B /* libsqlite3.0.dylib in Frameworks */,
+				A0D2F1A01590D30900C24063 /* UIKit.framework in Frameworks */,
+				A0D2F1A21590D30900C24063 /* Foundation.framework in Frameworks */,
+				A0D2F1A41590D30900C24063 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0240B311591DCE1002F637B /* Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A0240B341591DD78002F637B /* Question.h */,
+				A0240B351591DD78002F637B /* Question.m */,
+				A0240B371591DE5A002F637B /* Answer.h */,
+				A0240B381591DE5A002F637B /* Answer.m */,
+				A0240B3A1591DEAD002F637B /* DataManager.h */,
+				A0240B3B1591DEAD002F637B /* DataManager.m */,
+				A015B7CD15932D5A0031F276 /* UserChoices.h */,
+				A015B7CE15932D5A0031F276 /* UserChoices.m */,
+				A014049F159499CC00BFC2FC /* UserResponse.h */,
+				A01404A0159499CC00BFC2FC /* UserResponse.m */,
+			);
+			name = "Data Manager";
+			sourceTree = "<group>";
+		};
+		A0240B331591DD11002F637B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3EF33BB91594CBA200E8C5F9 /* ChoiceTableViewController.h */,
+				3EF33BBA1594CBA200E8C5F9 /* ChoiceTableViewController.m */,
+				3EF33BBB1594CBA300E8C5F9 /* ChoiceTableViewController.xib */,
+				A0240B6C1592329F002F637B /* SingleChoiceViewController.h */,
+				A0240B6D1592329F002F637B /* SingleChoiceViewController.m */,
+				3E37789D1593675A003ED66F /* MultipleChoiceViewController.h */,
+				3E37789E1593675A003ED66F /* MultipleChoiceViewController.m */,
+				A015B7C7159328840031F276 /* PreviewAnswersViewController.h */,
+				A015B7C8159328840031F276 /* PreviewAnswersViewController.m */,
+				A015B7C9159328840031F276 /* PreviewAnswersViewController.xib */,
+				3E8F402015933D5700AF287A /* TextChoiceViewController.h */,
+				3E8F402115933D5700AF287A /* TextChoiceViewController.m */,
+				3E8F402215933D5700AF287A /* TextChoiceViewController.xib */,
+				A0240B281591CF1D002F637B /* MainQuestionsViewController.h */,
+				A0240B291591CF1D002F637B /* MainQuestionsViewController.m */,
+				A0240B2A1591CF1D002F637B /* MainQuestionsViewController.xib */,
+				A0240B49159219B9002F637B /* SubquestionsViewController.h */,
+				A0240B4A159219B9002F637B /* SubquestionsViewController.m */,
+				A0240B4B159219B9002F637B /* SubquestionsViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A0D2F1901590D30900C24063 = {
+			isa = PBXGroup;
+			children = (
+				A0D2F1A51590D30900C24063 /* Quizzy */,
+				A0D2F19E1590D30900C24063 /* Frameworks */,
+				A0D2F19C1590D30900C24063 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0D2F19C1590D30900C24063 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0D2F19B1590D30900C24063 /* Quizzy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0D2F19E1590D30900C24063 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0240B5F159225AE002F637B /* MessageUI.framework */,
+				A0240B3F1591F05D002F637B /* libsqlite3.0.dylib */,
+				A0D2F19F1590D30900C24063 /* UIKit.framework */,
+				A0D2F1A11590D30900C24063 /* Foundation.framework */,
+				A0D2F1A31590D30900C24063 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0D2F1A51590D30900C24063 /* Quizzy */ = {
+			isa = PBXGroup;
+			children = (
+				A0240B3D1591F017002F637B /* QuizData.sqlite */,
+				A0D2F1AE1590D30900C24063 /* AppDelegate.h */,
+				A0D2F1AF1590D30900C24063 /* AppDelegate.m */,
+				A0240B71159233AE002F637B /* AnswerDelegate.h */,
+				A0240B311591DCE1002F637B /* Data Manager */,
+				A0240B331591DD11002F637B /* ViewControllers */,
+				A0D2F1A61590D30900C24063 /* Supporting Files */,
+			);
+			path = Quizzy;
+			sourceTree = "<group>";
+		};
+		A0D2F1A61590D30900C24063 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E81EE7915988C6F00EFA2E4 /* green.png */,
+				3E81EE7E1598A0AB00EFA2E4 /* aqua_2.png */,
+				A0240B6115922B5B002F637B /* Question.png */,
+				A0240B5215921E2C002F637B /* CustomLabel.h */,
+				A0240B5315921E2C002F637B /* CustomLabel.m */,
+				A0D2F1A71590D30900C24063 /* Quizzy-Info.plist */,
+				A0D2F1A81590D30900C24063 /* InfoPlist.strings */,
+				A0D2F1AB1590D30900C24063 /* main.m */,
+				A0D2F1AD1590D30900C24063 /* Quizzy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0D2F19A1590D30900C24063 /* Quizzy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0D2F1B31590D30900C24063 /* Build configuration list for PBXNativeTarget "Quizzy" */;
+			buildPhases = (
+				A0D2F1971590D30900C24063 /* Sources */,
+				A0D2F1981590D30900C24063 /* Frameworks */,
+				A0D2F1991590D30900C24063 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Quizzy;
+			productName = Quizzy;
+			productReference = A0D2F19B1590D30900C24063 /* Quizzy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0D2F1921590D30900C24063 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = MentorMate;
+			};
+			buildConfigurationList = A0D2F1951590D30900C24063 /* Build configuration list for PBXProject "Quizzy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A0D2F1901590D30900C24063;
+			productRefGroup = A0D2F19C1590D30900C24063 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0D2F19A1590D30900C24063 /* Quizzy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0D2F1991590D30900C24063 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0D2F1AA1590D30900C24063 /* InfoPlist.strings in Resources */,
+				A0240B2C1591CF1D002F637B /* MainQuestionsViewController.xib in Resources */,
+				A0240B3E1591F017002F637B /* QuizData.sqlite in Resources */,
+				A0240B4D159219B9002F637B /* SubquestionsViewController.xib in Resources */,
+				A0240B6215922B5B002F637B /* Question.png in Resources */,
+				A015B7CB159328840031F276 /* PreviewAnswersViewController.xib in Resources */,
+				3E8F402415933D5700AF287A /* TextChoiceViewController.xib in Resources */,
+				3EF33BBD1594CBA300E8C5F9 /* ChoiceTableViewController.xib in Resources */,
+				3E81EE7B15988C6F00EFA2E4 /* green.png in Resources */,
+				3E81EE7F1598A0AB00EFA2E4 /* aqua_2.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0D2F1971590D30900C24063 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0D2F1AC1590D30900C24063 /* main.m in Sources */,
+				A0D2F1B01590D30900C24063 /* AppDelegate.m in Sources */,
+				A0240B2B1591CF1D002F637B /* MainQuestionsViewController.m in Sources */,
+				A0240B361591DD78002F637B /* Question.m in Sources */,
+				A0240B391591DE5A002F637B /* Answer.m in Sources */,
+				A0240B3C1591DEAD002F637B /* DataManager.m in Sources */,
+				A0240B4C159219B9002F637B /* SubquestionsViewController.m in Sources */,
+				A0240B5415921E2C002F637B /* CustomLabel.m in Sources */,
+				A0240B6F1592329F002F637B /* SingleChoiceViewController.m in Sources */,
+				A015B7CA159328840031F276 /* PreviewAnswersViewController.m in Sources */,
+				A015B7CF15932D5A0031F276 /* UserChoices.m in Sources */,
+				3E8F402315933D5700AF287A /* TextChoiceViewController.m in Sources */,
+				3E3778A01593675A003ED66F /* MultipleChoiceViewController.m in Sources */,
+				A01404A1159499CC00BFC2FC /* UserResponse.m in Sources */,
+				3EF33BBC1594CBA300E8C5F9 /* ChoiceTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A0D2F1A81590D30900C24063 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0D2F1A91590D30900C24063 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0D2F1B11590D30900C24063 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A0D2F1B21590D30900C24063 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0D2F1B41590D30900C24063 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quizzy/Quizzy-Prefix.pch";
+				INFOPLIST_FILE = "Quizzy/Quizzy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A0D2F1B51590D30900C24063 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quizzy/Quizzy-Prefix.pch";
+				INFOPLIST_FILE = "Quizzy/Quizzy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0D2F1951590D30900C24063 /* Build configuration list for PBXProject "Quizzy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0D2F1B11590D30900C24063 /* Debug */,
+				A0D2F1B21590D30900C24063 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0D2F1B31590D30900C24063 /* Build configuration list for PBXNativeTarget "Quizzy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0D2F1B41590D30900C24063 /* Debug */,
+				A0D2F1B51590D30900C24063 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0D2F1921590D30900C24063 /* Project object */;
+}
